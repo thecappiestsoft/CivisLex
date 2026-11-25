@@ -1,0 +1,103 @@
+{
+  "procedureId": "PROC_UDIP_01",
+  "title": { "pl": "Wniosek o udostępnienie informacji publicznej", "en": "Request for access to public information" },
+  "description": {
+    "pl": "Dowiedz się, do kogo kierować wniosek, czy trzeba go uzasadniać i ile czasu ma urząd na odpowiedź.",
+    "en": "Learn whom to address, whether you must justify the request, and how long the office has to reply."
+  },
+  "category": "PRAWO_ADMINISTRACYJNE",
+  "legalBasisRefs": ["ART_61_KONSTYTUCJI", "UDIP_ART_2", "UDIP_ART_13"],
+  "startNodeId": "node_1",
+  "nodes": {
+    "node_1": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Do jakiego podmiotu kierujesz wniosek o ujawnienie treści umów zawartych przez urząd miasta?",
+        "en": "To whom do you address a request to disclose the contracts concluded by the city office?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Do Prezydenta Miasta / Burmistrza (organu wykonawczego gminy)", "en": "To the Mayor (the executive body of the municipality)" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Poprawnie. Organ wykonawczy gminy jest podmiotem zobowiązanym do udostępnienia informacji publicznej.",
+            "en": "Correct. The municipality's executive body is obliged to provide public information."
+          },
+          "nextNodeId": "node_interest"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Bezpośrednio do Rzecznika Praw Obywatelskich", "en": "Directly to the Commissioner for Human Rights (RPO)" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. RPO interweniuje dopiero wtedy, gdy organ administracji naruszy Twoje prawa, nie zastępuje urzędu gminy.",
+            "en": "Wrong. The RPO steps in only when an authority infringes your rights; it does not replace the municipal office."
+          },
+          "nextNodeId": "node_1"
+        },
+        {
+          "id": "opt_c",
+          "label": { "pl": "Do wojewódzkiego sądu administracyjnego", "en": "To the Voivodeship Administrative Court" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Do WSA można wnieść skargę na bezczynność organu, ale dopiero gdy urząd nie odpowie na wniosek.",
+            "en": "Wrong. You may complain to the administrative court about inaction, but only after the office fails to respond."
+          },
+          "nextNodeId": "node_1"
+        }
+      ]
+    },
+    "node_interest": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Czy we wniosku musisz wykazać, do czego potrzebujesz tych informacji (interes prawny)?",
+        "en": "Do you need to show in the request why you need this information (legal interest)?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Tak, bez uzasadnienia urząd odmówi", "en": "Yes, otherwise the office will refuse" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Art. 2 ust. 2 ustawy zakazuje żądania wykazania interesu prawnego lub faktycznego.",
+            "en": "Wrong. Art. 2(2) of the Act forbids requiring proof of legal or factual interest."
+          },
+          "nextNodeId": "node_interest"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Nie, prawo do informacji przysługuje każdemu", "en": "No, everyone has the right to information" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Dokładnie. Od osoby wykonującej prawo do informacji publicznej nie wolno żądać wykazania interesu.",
+            "en": "Exactly. A person exercising the right to public information may not be asked to show any interest."
+          },
+          "nextNodeId": "node_2"
+        }
+      ]
+    },
+    "node_2": {
+      "type": "DEADLINE_CHECK",
+      "prompt": {
+        "pl": "W jakim maksymalnym terminie (w dniach) organ musi udzielić odpowiedzi bez zbędnej zwłoki?",
+        "en": "Within what maximum time limit (in days) must the authority respond without undue delay?"
+      },
+      "expectedConstantKey": "UDIP_RESPONSE_DAYS",
+      "toleranceDays": 0,
+      "feedbackSuccess": {
+        "pl": "Zgadza się. Zgodnie z art. 13 ust. 1 ustawy termin ten wynosi {@const:UDIP_RESPONSE_DAYS} dni.",
+        "en": "That's right. Under Art. 13(1) of the Act the time limit is {@const:UDIP_RESPONSE_DAYS} days."
+      },
+      "feedbackFailure": {
+        "pl": "Niestety nie. Sprawdź art. 13 ust. 1 ustawy o dostępie do informacji publicznej.",
+        "en": "Not quite. Check Art. 13(1) of the Act on Access to Public Information."
+      },
+      "nextNodeId": "node_form"
+    },
+    "node_form": {
+      "type": "DOCUMENT_BUILDER",
+      "templateId": "TPL_UDIP_WNIOSEK"
+    }
+  }
+}

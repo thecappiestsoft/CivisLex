@@ -1,0 +1,6 @@
+/* Główny arkusz — kolejność importów ma znaczenie. */
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+@import './views.css';

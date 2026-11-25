@@ -1,0 +1,129 @@
+/* ==========================================================================
+   Tokeny projektowe — motyw „Teczka sprawy”.
+   Design tokens: case-file / chancellery look. Zmiany wyglądu zaczynaj tutaj.
+
+   Fonty: projekt zakłada IBM Plex Sans, IBM Plex Mono i Source Serif 4
+   (licencja SIL OFL). Jeśli są zainstalowane w systemie, zostaną użyte;
+   w przeciwnym razie działają systemowe zamienniki (aplikacja jest offline).
+   Aby osadzić fonty w aplikacji, zobacz docs/ARCHITEKTURA.md → „Fonty”.
+   ========================================================================== */
+
+:root {
+  --font-sans: 'IBM Plex Sans', 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --font-serif: 'Source Serif 4', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', 'Courier Prime', 'Courier New', ui-monospace, Menlo, Consolas, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.6rem;
+  --fs-2xl: clamp(1.9rem, 3.2vw, 2.6rem);
+
+  --radius-sm: 4px;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --radius-tab: 10px;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  --container: 1280px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ---------- Jasny: teczka na biurku ---------- */
+:root,
+[data-theme='light'] {
+  --bar: #2a2f3a;            /* pasek nagłówka */
+  --bar-text: #fbf7ec;
+  --bar-muted: #b9b2a2;
+  --bar-sunken: #151820;
+  --bar-border: #4a4f5c;
+
+  --folder: #f3e6c4;         /* wnętrze teczki (tło stron) */
+  --folder-edge: #e2d2a8;
+  --tab-1: #c9b487;          /* nieaktywne zakładki */
+  --tab-2: #bba678;
+  --tab-3: #ad9869;
+  --tab-text: #3a3428;
+
+  --paper: #fffdf6;          /* kartki */
+  --paper-2: #f8f2e3;
+  --paper-line: #e6dcc4;
+  --paper-shadow: 0 1px 0 #e2d5b5, 0 12px 26px rgba(80, 60, 20, 0.16);
+  --paper-stack: 5px 5px 0 -1px #f8f0d9, 5px 5px 0 0 #dccca3;
+
+  --ink: #1e2a3a;            /* tusz */
+  --ink-contrast: #fbf7ec;
+  --text-muted: #5b5446;
+  --text-faint: #7a715e;
+  --dots: #8c8270;           /* wykropkowania */
+  --dots-light: #b5aa92;
+
+  --stamp: #c0392b;          /* czerwień pieczątki */
+  --stamp-soft: #fbedea;
+  --carbon: #2b4c7e;         /* niebieski kopiowy */
+  --carbon-soft: #e4ecf7;
+  --ok: #2e6b3f;
+  --ok-soft: #e4f1e6;
+  --warn: #8a5a00;
+  --warn-soft: #fbf0d6;
+
+  --cat-konst: #6b2f7a;
+  --cat-admin: #2b4c7e;
+  --cat-cyw: #2e6b3f;
+  --cat-karne: #c0392b;
+
+  --focus: 0 0 0 3px rgba(43, 76, 126, 0.4);
+}
+
+/* ---------- Ciemny: archiwum nocą ---------- */
+[data-theme='dark'] {
+  --bar: #101319;
+  --bar-text: #ede6d3;
+  --bar-muted: #8f897a;
+  --bar-sunken: #07090d;
+  --bar-border: #2f3440;
+
+  --folder: #2a251d;
+  --folder-edge: #3a3327;
+  --tab-1: #4a4232;
+  --tab-2: #423a2c;
+  --tab-3: #3a3327;
+  --tab-text: #d8cfb8;
+
+  --paper: #1f1d18;
+  --paper-2: #26231c;
+  --paper-line: #39342a;
+  --paper-shadow: 0 1px 0 #3a3327, 0 14px 30px rgba(0, 0, 0, 0.45);
+  --paper-stack: 5px 5px 0 -1px #24211a, 5px 5px 0 0 #3d3628;
+
+  --ink: #ede6d3;
+  --ink-contrast: #15130f;
+  --text-muted: #b3aa94;
+  --text-faint: #8f877a;
+  --dots: #7d7461;
+  --dots-light: #5a5345;
+
+  --stamp: #ef6f5e;
+  --stamp-soft: #3a1f1a;
+  --carbon: #93b4e6;
+  --carbon-soft: #1d2a40;
+  --ok: #86cf98;
+  --ok-soft: #18301f;
+  --warn: #e9b85c;
+  --warn-soft: #33280f;
+
+  --cat-konst: #c995d6;
+  --cat-admin: #93b4e6;
+  --cat-cyw: #86cf98;
+  --cat-karne: #ef6f5e;
+
+  --focus: 0 0 0 3px rgba(147, 180, 230, 0.45);
+}

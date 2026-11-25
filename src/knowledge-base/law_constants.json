@@ -1,0 +1,53 @@
+{
+  "lastUpdatedByTeacher": "2026-09-01",
+  "constants": {
+    "UDIP_RESPONSE_DAYS": {
+      "value": 14,
+      "label": { "pl": "Termin na odpowiedź (informacja publiczna)", "en": "Response deadline (access to public information)" },
+      "unit": { "pl": "dni", "en": "days" },
+      "ref": "UDIP_ART_13"
+    },
+    "UDIP_EXTENDED_MONTHS": {
+      "value": 2,
+      "label": { "pl": "Maksymalny przedłużony termin (informacja publiczna)", "en": "Maximum extended deadline (public information)" },
+      "unit": { "pl": "mies.", "en": "months" },
+      "ref": "UDIP_ART_13"
+    },
+    "KPA_APPEAL_DAYS": {
+      "value": 14,
+      "label": { "pl": "Termin na odwołanie od decyzji administracyjnej", "en": "Deadline to appeal an administrative decision" },
+      "unit": { "pl": "dni", "en": "days" },
+      "ref": "KPA_ART_129"
+    },
+    "WSA_COMPLAINT_DAYS": {
+      "value": 30,
+      "label": { "pl": "Termin na skargę do WSA", "en": "Deadline for a complaint to the Voivodeship Administrative Court" },
+      "unit": { "pl": "dni", "en": "days" },
+      "ref": "PPSA_ART_53"
+    },
+    "CONSUMER_COMPLAINT_RESPONSE_DAYS": {
+      "value": 14,
+      "label": { "pl": "Termin przedsiębiorcy na odpowiedź na reklamację", "en": "Trader's deadline to respond to a consumer complaint" },
+      "unit": { "pl": "dni", "en": "days" },
+      "ref": "UPK_ART_7A"
+    },
+    "CONSUMER_LIABILITY_YEARS": {
+      "value": 2,
+      "label": { "pl": "Odpowiedzialność za brak zgodności towaru z umową", "en": "Liability for goods not conforming to the contract" },
+      "unit": { "pl": "lata", "en": "years" },
+      "ref": "UPK_ART_43C"
+    },
+    "THEFT_MISDEMEANOR_LIMIT_PLN": {
+      "value": 800,
+      "label": { "pl": "Próg kradzieży wykroczenie/przestępstwo", "en": "Theft threshold: petty offence vs. crime" },
+      "unit": "PLN",
+      "ref": "KW_ART_119"
+    },
+    "SMALL_CLAIMS_LIMIT_PLN": {
+      "value": 20000,
+      "label": { "pl": "Górny limit postępowania uproszczonego KPC", "en": "Upper limit of simplified civil procedure (KPC)" },
+      "unit": "PLN",
+      "ref": "KPC_ART_505_1"
+    }
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "templateId": "TPL_ZAWIADOMIENIE",
+  "title": {
+    "pl": "Zawiadomienie o podejrzeniu popełnienia przestępstwa",
+    "en": "Notification of a suspected crime"
+  },
+  "formalElements": {
+    "placeDate": [
+      "document.place",
+      "document.date"
+    ],
+    "sender": [
+      "applicant.fullName",
+      "applicant.address"
+    ],
+    "addressee": [
+      "addressee.name",
+      "addressee.address"
+    ],
+    "body": [
+      "incident.date",
+      "incident.item",
+      "incident.value",
+      "incident.description"
+    ]
+  },
+  "defaults": {
+    "document.date": "@today",
+    "request.prosecution": true
+  },
+  "rules": [
+    {
+      "type": "minConst",
+      "field": "incident.value",
+      "constKey": "THEFT_MISDEMEANOR_LIMIT_PLN",
+      "message": {
+        "pl": "Kradzież mienia powyżej {limit} zł to przestępstwo (poniżej — wykroczenie)",
+        "en": "Theft above PLN {limit} is a crime (below — a petty offence)"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "key": "document.place",
+      "label": {
+        "pl": "Miejscowość",
+        "en": "Place"
+      },
+      "type": "text",
+      "required": true,
+      "group": "document",
+      "placeholder": {
+        "pl": "np. Kraków",
+        "en": "e.g. Kraków"
+      }
+    },
+    {
+      "key": "document.date",
+      "label": {
+        "pl": "Data sporządzenia",
+        "en": "Date of the document"
+      },
+      "type": "date",
+      "required": true,
+      "group": "document"
+    },
+    {
+      "key": "applicant.fullName",
+      "label": {
+        "pl": "Imię i nazwisko",
+        "en": "Full name"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant"
+    },
+    {
+      "key": "applicant.address",
+      "label": {
+        "pl": "Adres zamieszkania",
+        "en": "Home address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant",
+      "placeholder": {
+        "pl": "ul. Lipowa 5, 00-950 Warszawa",
+        "en": "ul. Lipowa 5, 00-950 Warszawa"
+      }
+    },
+    {
+      "key": "applicant.pesel",
+      "label": {
+        "pl": "Numer PESEL",
+        "en": "PESEL number"
+      },
+      "type": "pesel",
+      "group": "applicant",
+      "placeholder": {
+        "pl": "11 cyfr",
+        "en": "11 digits"
+      }
+    },
+    {
+      "key": "applicant.phone",
+      "label": {
+        "pl": "Telefon (opcjonalnie)",
+        "en": "Phone (optional)"
+      },
+      "type": "text",
+      "group": "applicant"
+    },
+    {
+      "key": "addressee.name",
+      "label": {
+        "pl": "Adresat (Policja / prokuratura)",
+        "en": "Addressee (Police / prosecutor)"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee",
+      "placeholder": {
+        "pl": "Komenda Rejonowa Policji Warszawa I",
+        "en": "District Police Headquarters Warsaw I"
+      }
+    },
+    {
+      "key": "addressee.address",
+      "label": {
+        "pl": "Adres jednostki",
+        "en": "Address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee"
+    },
+    {
+      "key": "incident.date",
+      "label": {
+        "pl": "Data zdarzenia",
+        "en": "Date of the incident"
+      },
+      "type": "date",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "incident.place",
+      "label": {
+        "pl": "Miejsce zdarzenia",
+        "en": "Place of the incident"
+      },
+      "type": "text",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "incident.item",
+      "label": {
+        "pl": "Skradziona rzecz",
+        "en": "Stolen item"
+      },
+      "type": "text",
+      "required": true,
+      "group": "content",
+      "placeholder": {
+        "pl": "np. rower górski marki …",
+        "en": "e.g. mountain bike, brand …"
+      }
+    },
+    {
+      "key": "incident.value",
+      "label": {
+        "pl": "Wartość (PLN)",
+        "en": "Value (PLN)"
+      },
+      "type": "money",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "incident.description",
+      "label": {
+        "pl": "Okoliczności zdarzenia",
+        "en": "Circumstances"
+      },
+      "type": "textarea",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "incident.suspect",
+      "label": {
+        "pl": "Dane lub rysopis sprawcy (jeśli znane)",
+        "en": "Suspect details (if known)"
+      },
+      "type": "text",
+      "group": "content"
+    },
+    {
+      "key": "incident.witnesses",
+      "label": {
+        "pl": "Świadkowie (opcjonalnie)",
+        "en": "Witnesses (optional)"
+      },
+      "type": "textarea",
+      "group": "content"
+    },
+    {
+      "key": "request.prosecution",
+      "label": {
+        "pl": "Wnoszę o ściganie sprawcy",
+        "en": "I request prosecution of the offender"
+      },
+      "type": "checkbox",
+      "group": "content"
+    },
+    {
+      "key": "attachments",
+      "label": {
+        "pl": "Załączniki",
+        "en": "Attachments"
+      },
+      "type": "list",
+      "group": "attachments",
+      "placeholder": {
+        "pl": "np. kopia decyzji",
+        "en": "e.g. copy of the decision"
+      }
+    }
+  ],
+  "body": {
+    "pl": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>tel.: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-title'>Zawiadomienie</div>",
+      "<div class='doc-subtitle'>o podejrzeniu popełnienia przestępstwa</div>",
+      "<p>Na podstawie art. 304 § 1 Kodeksu postępowania karnego zawiadamiam o podejrzeniu popełnienia przestępstwa kradzieży, tj. czynu z art. 278 § 1 Kodeksu karnego, do którego doszło w dniu {{incident.date}} w miejscowości / miejscu: {{incident.place}}.</p>",
+      "<div class='doc-section'>Uzasadnienie</div>",
+      "<p>W wyniku zdarzenia skradziono mi: <b>{{incident.item}}</b> o wartości {{incident.value}}.</p>",
+      "<p>{{incident.description}}</p>",
+      "{#if incident.suspect}<p>Dane / rysopis sprawcy: {{incident.suspect}}.</p>{/if}",
+      "{#if incident.witnesses}<p>Świadkowie zdarzenia: {{incident.witnesses}}</p>{/if}",
+      "{#if request.prosecution}<p>Jako pokrzywdzony(-a) wnoszę o ściganie sprawcy oraz o poinformowanie mnie o wszczęciu postępowania.</p>{/if}",
+      "<p>Wartość skradzionego mienia przekracza {@const:THEFT_MISDEMEANOR_LIMIT_PLN} zł, w związku z czym czyn stanowi przestępstwo, a nie wykroczenie z art. 119 § 1 Kodeksu wykroczeń.</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(własnoręczny podpis)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Załączniki:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ],
+    "en": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>phone: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-title'>Notification</div>",
+      "<div class='doc-subtitle'>of a suspected crime</div>",
+      "<p>Pursuant to Article 304 § 1 of the Code of Criminal Procedure, I hereby report a suspected theft, i.e. an act under Article 278 § 1 of the Criminal Code, which took place on {{incident.date}} at: {{incident.place}}.</p>",
+      "<div class='doc-section'>Statement of reasons</div>",
+      "<p>As a result of the incident the following was stolen from me: <b>{{incident.item}}</b> worth {{incident.value}}.</p>",
+      "<p>{{incident.description}}</p>",
+      "{#if incident.suspect}<p>Suspect details / description: {{incident.suspect}}.</p>{/if}",
+      "{#if incident.witnesses}<p>Witnesses: {{incident.witnesses}}</p>{/if}",
+      "{#if request.prosecution}<p>As the injured party, I request that the offender be prosecuted and that I be informed of the initiation of proceedings.</p>{/if}",
+      "<p>The value of the stolen property exceeds PLN {@const:THEFT_MISDEMEANOR_LIMIT_PLN}; the act therefore constitutes a crime rather than a petty offence under Article 119 § 1 of the Code of Petty Offences.</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(handwritten signature)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Attachments:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ]
+  }
+}

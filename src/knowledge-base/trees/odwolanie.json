@@ -1,0 +1,99 @@
+{
+  "procedureId": "PROC_ODWOLANIE_KPA_01",
+  "title": { "pl": "Odwołanie od decyzji administracyjnej", "en": "Appeal against an administrative decision" },
+  "description": {
+    "pl": "Zaskarżenie decyzji organu I instancji: tryb, termin i treść odwołania.",
+    "en": "Challenging a first-instance decision: the route, deadline and content of the appeal."
+  },
+  "category": "PRAWO_ADMINISTRACYJNE",
+  "legalBasisRefs": ["ART_78_KONSTYTUCJI", "KPA_ART_127", "KPA_ART_128", "KPA_ART_129"],
+  "startNodeId": "node_1",
+  "nodes": {
+    "node_1": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Burmistrz wydał decyzję odmowną w Twojej sprawie. Jak wnosisz odwołanie?",
+        "en": "The Mayor issued a negative decision in your case. How do you lodge an appeal?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Do samorządowego kolegium odwoławczego, za pośrednictwem Burmistrza", "en": "To the Local Government Appeals Board (SKO), through the Mayor" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Poprawnie. Odwołanie wnosi się do organu odwoławczego za pośrednictwem organu, który wydał decyzję (art. 129 § 1 KPA).",
+            "en": "Correct. The appeal goes to the appellate authority through the authority that issued the decision (Art. 129 § 1 KPA)."
+          },
+          "nextNodeId": "node_2"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Od razu skargą do wojewódzkiego sądu administracyjnego", "en": "Straight to the administrative court with a complaint" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Skarga do WSA ({@const:WSA_COMPLAINT_DAYS} dni) przysługuje dopiero po wyczerpaniu toku instancji, czyli po rozpatrzeniu odwołania.",
+            "en": "Wrong. A court complaint ({@const:WSA_COMPLAINT_DAYS} days) is available only after exhausting the administrative appeal."
+          },
+          "nextNodeId": "node_1"
+        },
+        {
+          "id": "opt_c",
+          "label": { "pl": "Do Rzecznika Praw Obywatelskich", "en": "To the Commissioner for Human Rights" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. RPO nie rozpatruje odwołań od decyzji — to zadanie organu II instancji.",
+            "en": "Wrong. The RPO does not hear appeals against decisions — that is the second-instance authority's role."
+          },
+          "nextNodeId": "node_1"
+        }
+      ]
+    },
+    "node_2": {
+      "type": "DEADLINE_CHECK",
+      "prompt": {
+        "pl": "Ile dni od doręczenia decyzji masz na wniesienie odwołania?",
+        "en": "How many days from service of the decision do you have to lodge an appeal?"
+      },
+      "expectedConstantKey": "KPA_APPEAL_DAYS",
+      "toleranceDays": 0,
+      "feedbackSuccess": {
+        "pl": "Tak — {@const:KPA_APPEAL_DAYS} dni od doręczenia (art. 129 § 2 KPA). Sprawdź dokładną datę w kalkulatorze terminów!",
+        "en": "Yes — {@const:KPA_APPEAL_DAYS} days from service (Art. 129 § 2 KPA). Check the exact date in the deadline calculator!"
+      },
+      "nextNodeId": "node_3"
+    },
+    "node_3": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Czy odwołanie musi zawierać szczegółowe uzasadnienie prawne?",
+        "en": "Must the appeal contain detailed legal reasoning?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Nie — wystarczy, że wynika z niego niezadowolenie z decyzji", "en": "No — it's enough that it shows dissatisfaction with the decision" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Dobrze (art. 128 KPA). Warto jednak krótko wskazać zarzuty — to zwiększa szanse.",
+            "en": "Good (Art. 128 KPA). Still, briefly stating your objections improves your chances."
+          },
+          "nextNodeId": "node_form"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Tak — bez powołania przepisów odwołanie będzie odrzucone", "en": "Yes — without citing provisions it will be rejected" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. KPA wprost zwalnia z obowiązku szczegółowego uzasadnienia.",
+            "en": "Wrong. The Code expressly waives the requirement of detailed reasoning."
+          },
+          "nextNodeId": "node_3"
+        }
+      ]
+    },
+    "node_form": {
+      "type": "DOCUMENT_BUILDER",
+      "templateId": "TPL_ODWOLANIE_KPA"
+    }
+  }
+}

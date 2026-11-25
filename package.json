@@ -1,0 +1,26 @@
+{
+  "name": "civis-lex",
+  "version": "1.0.0",
+  "description": "CivisLex – interaktywny asystent prawno-obywatelski (offline-first, PL/EN)",
+  "private": true,
+  "author": "CappySoft.pl",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "node scripts/build.mjs --watch",
+    "build": "node scripts/build.mjs",
+    "build:single": "node scripts/build.mjs && node scripts/build-single.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "validate:kb": "tsx scripts/validate-kb.ts",
+    "check": "npm run typecheck && npm run validate:kb && npm test",
+    "desktop": "npm run build && electron ."
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

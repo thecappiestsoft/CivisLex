@@ -1,0 +1,100 @@
+{
+  "procedureId": "PROC_POZEW_UPR_01",
+  "title": { "pl": "Pozew w postępowaniu uproszczonym", "en": "Statement of claim in simplified proceedings" },
+  "description": {
+    "pl": "Dochodzenie niewielkiej kwoty z umowy przed sądem cywilnym.",
+    "en": "Recovering a small contractual amount before a civil court."
+  },
+  "category": "PRAWO_CYWILNE",
+  "legalBasisRefs": ["ART_45_KONSTYTUCJI", "KPC_ART_505_1", "KPC_ART_126", "KPC_ART_187"],
+  "startNodeId": "node_1",
+  "nodes": {
+    "node_1": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Znajomy pożyczył od Ciebie 3 000 zł na podstawie pisemnej umowy i nie oddaje pieniędzy. Do jakiego sądu wnosisz pozew?",
+        "en": "A friend borrowed PLN 3,000 under a written agreement and won't pay it back. Which court do you file the claim with?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Do sądu rejonowego właściwego dla miejsca zamieszkania pozwanego", "en": "The district court (sąd rejonowy) for the defendant's place of residence" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Poprawnie. Sprawy o niewielkiej wartości rozpoznaje sąd rejonowy; co do zasady właściwy jest sąd miejsca zamieszkania pozwanego.",
+            "en": "Correct. Low-value cases go to the district court; as a rule, the court of the defendant's residence is competent."
+          },
+          "nextNodeId": "node_2"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Do sądu okręgowego", "en": "The regional court (sąd okręgowy)" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Sąd okręgowy rozpoznaje w I instancji m.in. sprawy o wyższej wartości przedmiotu sporu.",
+            "en": "Wrong. The regional court hears, at first instance, among others, higher-value cases."
+          },
+          "nextNodeId": "node_1"
+        },
+        {
+          "id": "opt_c",
+          "label": { "pl": "Do wojewódzkiego sądu administracyjnego", "en": "The Voivodeship Administrative Court" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Sądy administracyjne kontrolują administrację, a nie spory między osobami prywatnymi.",
+            "en": "Wrong. Administrative courts review the administration, not disputes between private persons."
+          },
+          "nextNodeId": "node_1"
+        }
+      ]
+    },
+    "node_2": {
+      "type": "DEADLINE_CHECK",
+      "prompt": {
+        "pl": "Do jakiej maksymalnej wartości przedmiotu sporu (w PLN) stosuje się postępowanie uproszczone w sprawach z umów?",
+        "en": "Up to what maximum value of the claim (PLN) does the simplified procedure apply to contractual cases?"
+      },
+      "expectedConstantKey": "SMALL_CLAIMS_LIMIT_PLN",
+      "toleranceDays": 0,
+      "unit": "PLN",
+      "feedbackSuccess": {
+        "pl": "Tak — {@const:SMALL_CLAIMS_LIMIT_PLN} zł (art. 505¹ § 1 KPC). Twoje 3 000 zł mieści się w limicie.",
+        "en": "Yes — PLN {@const:SMALL_CLAIMS_LIMIT_PLN} (Art. 505¹ § 1 KPC). Your PLN 3,000 is within the limit."
+      },
+      "nextNodeId": "node_3"
+    },
+    "node_3": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Co — oprócz wymogów pisma procesowego — musi zawierać pozew?",
+        "en": "Apart from the general pleading requirements, what must the statement of claim contain?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Dokładne żądanie z wartością sporu, fakty i informację o próbie mediacji", "en": "A precise claim with its value, the facts and information on attempted mediation" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Dobrze — to elementy z art. 187 § 1 KPC.",
+            "en": "Good — these are the elements of Art. 187 § 1 KPC."
+          },
+          "nextNodeId": "node_form"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Wystarczy imię i nazwisko pozwanego", "en": "Just the defendant's name is enough" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Sąd musi wiedzieć, czego żądasz i na jakich faktach to opierasz.",
+            "en": "Wrong. The court must know what you claim and on which facts it is based."
+          },
+          "nextNodeId": "node_3"
+        }
+      ]
+    },
+    "node_form": {
+      "type": "DOCUMENT_BUILDER",
+      "templateId": "TPL_POZEW_UPROSZCZONY"
+    }
+  }
+}

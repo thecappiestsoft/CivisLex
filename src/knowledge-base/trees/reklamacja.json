@@ -1,0 +1,128 @@
+{
+  "procedureId": "PROC_REKLAMACJA_01",
+  "title": { "pl": "Reklamacja towaru niezgodnego z umową", "en": "Complaint about non-conforming goods" },
+  "description": {
+    "pl": "Prawa konsumenta, gdy kupiony towar się zepsuł: do kogo, czego żądać i ile czeka się na odpowiedź.",
+    "en": "Consumer rights when goods turn out faulty: whom to contact, what to demand and how long to wait."
+  },
+  "category": "PRAWO_CYWILNE",
+  "legalBasisRefs": ["UPK_ART_43C", "UPK_ART_43D", "UPK_ART_7A"],
+  "startNodeId": "node_1",
+  "nodes": {
+    "node_1": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Po 3 miesiącach od zakupu w sklepie internetowym przestały działać słuchawki. Do kogo kierujesz reklamację z tytułu niezgodności towaru z umową?",
+        "en": "Three months after buying headphones online, they stopped working. Whom do you send a complaint about non-conformity to?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Do sprzedawcy (przedsiębiorcy, u którego kupiłem)", "en": "To the seller (the trader I bought from)" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Poprawnie. Za zgodność towaru z umową odpowiada sprzedawca — niezależnie od gwarancji producenta.",
+            "en": "Correct. The seller is liable for conformity — regardless of any manufacturer's guarantee."
+          },
+          "nextNodeId": "node_2"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Wyłącznie do producenta", "en": "Only to the manufacturer" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Gwarancja producenta jest dobrowolna i dodatkowa; ustawowa odpowiedzialność spoczywa na sprzedawcy.",
+            "en": "Wrong. A manufacturer's guarantee is voluntary and additional; statutory liability rests with the seller."
+          },
+          "nextNodeId": "node_1"
+        },
+        {
+          "id": "opt_c",
+          "label": { "pl": "Do Prezesa UOKiK", "en": "To the President of UOKiK (competition authority)" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. UOKiK chroni zbiorowe interesy konsumentów; w sprawie indywidualnej pomoże rzecznik konsumentów.",
+            "en": "Wrong. UOKiK protects collective consumer interests; for an individual case, a consumer ombudsman can help."
+          },
+          "nextNodeId": "node_1"
+        }
+      ]
+    },
+    "node_2": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Czego możesz żądać w pierwszej kolejności?",
+        "en": "What can you demand in the first place?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Naprawy lub wymiany towaru", "en": "Repair or replacement of the goods" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Tak (art. 43d). Obniżenie ceny lub odstąpienie od umowy przysługuje m.in. gdy naprawa/wymiana jest niemożliwa albo sprzedawca jej odmówi.",
+            "en": "Yes (Art. 43d). A price reduction or withdrawal is available e.g. when repair/replacement is impossible or refused."
+          },
+          "nextNodeId": "node_3"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Ukarania sprzedawcy grzywną", "en": "That the seller be fined" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Reklamacja to roszczenie cywilne, a nie środek karny.",
+            "en": "Wrong. A complaint is a civil claim, not a penalty."
+          },
+          "nextNodeId": "node_2"
+        }
+      ]
+    },
+    "node_3": {
+      "type": "DEADLINE_CHECK",
+      "prompt": {
+        "pl": "Ile dni ma przedsiębiorca na odpowiedź na reklamację konsumenta?",
+        "en": "How many days does the trader have to respond to a consumer complaint?"
+      },
+      "expectedConstantKey": "CONSUMER_COMPLAINT_RESPONSE_DAYS",
+      "toleranceDays": 0,
+      "feedbackSuccess": {
+        "pl": "Zgadza się — {@const:CONSUMER_COMPLAINT_RESPONSE_DAYS} dni od otrzymania reklamacji (art. 7a ust. 1).",
+        "en": "Right — {@const:CONSUMER_COMPLAINT_RESPONSE_DAYS} days from receiving the complaint (Art. 7a(1))."
+      },
+      "nextNodeId": "node_4"
+    },
+    "node_4": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Sklep nie odpowiedział w terminie. Co to oznacza?",
+        "en": "The shop did not respond in time. What does that mean?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Reklamację uważa się za uznaną", "en": "The complaint is deemed accepted" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Właśnie tak — milczenie przedsiębiorcy oznacza uznanie reklamacji (art. 7a ust. 2).",
+            "en": "Exactly — the trader's silence means acceptance (Art. 7a(2))."
+          },
+          "nextNodeId": "node_form"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Reklamację uważa się za odrzuconą", "en": "The complaint is deemed rejected" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Ustawa przewiduje skutek odwrotny — na korzyść konsumenta.",
+            "en": "Wrong. The Act provides the opposite effect — in the consumer's favour."
+          },
+          "nextNodeId": "node_4"
+        }
+      ]
+    },
+    "node_form": {
+      "type": "DOCUMENT_BUILDER",
+      "templateId": "TPL_REKLAMACJA"
+    }
+  }
+}

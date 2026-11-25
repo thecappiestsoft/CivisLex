@@ -1,0 +1,305 @@
+{
+  "templateId": "TPL_REKLAMACJA",
+  "title": {
+    "pl": "Reklamacja towaru niezgodnego z umową",
+    "en": "Complaint about non-conforming goods"
+  },
+  "formalElements": {
+    "placeDate": [
+      "document.place",
+      "document.date"
+    ],
+    "sender": [
+      "applicant.fullName",
+      "applicant.address"
+    ],
+    "addressee": [
+      "addressee.name",
+      "addressee.address"
+    ],
+    "body": [
+      "purchase.item",
+      "defect.description",
+      "claim.type"
+    ]
+  },
+  "defaults": {
+    "document.date": "@today",
+    "claim.type": "repair"
+  },
+  "rules": [
+    {
+      "type": "deadline",
+      "fromField": "purchase.date",
+      "toField": "defect.noticedDate",
+      "constKey": "CONSUMER_LIABILITY_YEARS",
+      "unit": "years",
+      "message": {
+        "pl": "Wada musi się ujawnić w ciągu {n} lat od dostarczenia (do {date})",
+        "en": "Defect must appear within {n} years of delivery (until {date})"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "key": "document.place",
+      "label": {
+        "pl": "Miejscowość",
+        "en": "Place"
+      },
+      "type": "text",
+      "required": true,
+      "group": "document",
+      "placeholder": {
+        "pl": "np. Kraków",
+        "en": "e.g. Kraków"
+      }
+    },
+    {
+      "key": "document.date",
+      "label": {
+        "pl": "Data sporządzenia",
+        "en": "Date of the document"
+      },
+      "type": "date",
+      "required": true,
+      "group": "document"
+    },
+    {
+      "key": "applicant.fullName",
+      "label": {
+        "pl": "Imię i nazwisko",
+        "en": "Full name"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant"
+    },
+    {
+      "key": "applicant.address",
+      "label": {
+        "pl": "Adres zamieszkania",
+        "en": "Home address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant",
+      "placeholder": {
+        "pl": "ul. Lipowa 5, 00-950 Warszawa",
+        "en": "ul. Lipowa 5, 00-950 Warszawa"
+      }
+    },
+    {
+      "key": "applicant.email",
+      "label": {
+        "pl": "E-mail (opcjonalnie)",
+        "en": "E-mail (optional)"
+      },
+      "type": "text",
+      "group": "applicant"
+    },
+    {
+      "key": "applicant.phone",
+      "label": {
+        "pl": "Telefon (opcjonalnie)",
+        "en": "Phone (optional)"
+      },
+      "type": "text",
+      "group": "applicant"
+    },
+    {
+      "key": "addressee.name",
+      "label": {
+        "pl": "Sprzedawca (nazwa firmy)",
+        "en": "Seller (company name)"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee",
+      "placeholder": {
+        "pl": "np. Sklep Elektro sp. z o.o.",
+        "en": "e.g. Elektro Shop Ltd."
+      }
+    },
+    {
+      "key": "addressee.address",
+      "label": {
+        "pl": "Adres sprzedawcy",
+        "en": "Seller address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee"
+    },
+    {
+      "key": "purchase.item",
+      "label": {
+        "pl": "Towar",
+        "en": "Item"
+      },
+      "type": "text",
+      "required": true,
+      "group": "content",
+      "placeholder": {
+        "pl": "np. słuchawki bezprzewodowe XYZ",
+        "en": "e.g. XYZ wireless headphones"
+      }
+    },
+    {
+      "key": "purchase.date",
+      "label": {
+        "pl": "Data zakupu / dostarczenia",
+        "en": "Date of purchase / delivery"
+      },
+      "type": "date",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "purchase.price",
+      "label": {
+        "pl": "Cena (PLN)",
+        "en": "Price (PLN)"
+      },
+      "type": "money",
+      "group": "content"
+    },
+    {
+      "key": "purchase.orderNo",
+      "label": {
+        "pl": "Nr zamówienia / paragonu",
+        "en": "Order / receipt no."
+      },
+      "type": "text",
+      "group": "content"
+    },
+    {
+      "key": "defect.noticedDate",
+      "label": {
+        "pl": "Data stwierdzenia wady",
+        "en": "Date the defect was noticed"
+      },
+      "type": "date",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "defect.description",
+      "label": {
+        "pl": "Opis niezgodności z umową",
+        "en": "Description of the non-conformity"
+      },
+      "type": "textarea",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "claim.type",
+      "label": {
+        "pl": "Żądanie",
+        "en": "Demand"
+      },
+      "type": "select",
+      "required": true,
+      "group": "content",
+      "options": [
+        {
+          "value": "repair",
+          "label": {
+            "pl": "Naprawa",
+            "en": "Repair"
+          },
+          "docLabel": {
+            "pl": "nieodpłatnej naprawy towaru",
+            "en": "free repair of the goods"
+          }
+        },
+        {
+          "value": "replace",
+          "label": {
+            "pl": "Wymiana",
+            "en": "Replacement"
+          },
+          "docLabel": {
+            "pl": "wymiany towaru na nowy, zgodny z umową",
+            "en": "replacement of the goods with new ones conforming to the contract"
+          }
+        },
+        {
+          "value": "price",
+          "label": {
+            "pl": "Obniżenie ceny",
+            "en": "Price reduction"
+          },
+          "docLabel": {
+            "pl": "obniżenia ceny (art. 43e ustawy)",
+            "en": "a price reduction (Art. 43e of the Act)"
+          }
+        },
+        {
+          "value": "withdraw",
+          "label": {
+            "pl": "Odstąpienie od umowy",
+            "en": "Withdrawal from the contract"
+          },
+          "docLabel": {
+            "pl": "odstąpienia od umowy i zwrotu zapłaconej ceny (art. 43e ustawy)",
+            "en": "withdrawal from the contract and a refund of the price paid (Art. 43e of the Act)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "refund.account",
+      "label": {
+        "pl": "Nr rachunku do zwrotu (opcjonalnie)",
+        "en": "Bank account for refund (optional)"
+      },
+      "type": "text",
+      "group": "content"
+    },
+    {
+      "key": "attachments",
+      "label": {
+        "pl": "Załączniki",
+        "en": "Attachments"
+      },
+      "type": "list",
+      "group": "attachments",
+      "placeholder": {
+        "pl": "np. kopia decyzji",
+        "en": "e.g. copy of the decision"
+      }
+    }
+  ],
+  "body": {
+    "pl": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>tel.: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-title'>Reklamacja</div>",
+      "<div class='doc-subtitle'>towaru niezgodnego z umową</div>",
+      "<p>Dnia {{purchase.date}} nabyłem(-am) w Państwa sklepie towar: <b>{{purchase.item}}</b>{#if purchase.price} w cenie {{purchase.price}}{/if}{#if purchase.orderNo} (nr zamówienia / dowodu zakupu: {{purchase.orderNo}}){/if}.</p>",
+      "<p>Dnia {{defect.noticedDate}} stwierdziłem(-am), że towar jest niezgodny z umową. Niezgodność polega na tym, że: {{defect.description}}</p>",
+      "<p>Na podstawie art. 43c–43e ustawy z dnia 30 maja 2014 r. o prawach konsumenta żądam {{claim.type}}.</p>",
+      "{#if refund.account}<p>Ewentualny zwrot należności proszę przekazać na rachunek bankowy nr {{refund.account}}.</p>{/if}",
+      "<p>Proszę o ustosunkowanie się do reklamacji w terminie {@const:CONSUMER_COMPLAINT_RESPONSE_DAYS} dni od jej otrzymania. Zgodnie z art. 7a ustawy: {@lawRef:UPK_ART_7A}</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(własnoręczny podpis)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Załączniki:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ],
+    "en": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>phone: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-title'>Complaint</div>",
+      "<div class='doc-subtitle'>regarding goods not in conformity with the contract</div>",
+      "<p>On {{purchase.date}} I purchased from your shop the following item: <b>{{purchase.item}}</b>{#if purchase.price} at the price of {{purchase.price}}{/if}{#if purchase.orderNo} (order / receipt no.: {{purchase.orderNo}}){/if}.</p>",
+      "<p>On {{defect.noticedDate}} I found that the goods do not conform to the contract. The non-conformity consists in: {{defect.description}}</p>",
+      "<p>Pursuant to Articles 43c–43e of the Consumer Rights Act of 30 May 2014, I demand {{claim.type}}.</p>",
+      "{#if refund.account}<p>Please transfer any refund to bank account no. {{refund.account}}.</p>{/if}",
+      "<p>Please respond to this complaint within {@const:CONSUMER_COMPLAINT_RESPONSE_DAYS} days of receipt. Under Article 7a of the Act: {@lawRef:UPK_ART_7A}</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(handwritten signature)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Attachments:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ]
+  }
+}

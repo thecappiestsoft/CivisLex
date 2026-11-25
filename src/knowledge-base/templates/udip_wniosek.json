@@ -1,0 +1,203 @@
+{
+  "templateId": "TPL_UDIP_WNIOSEK",
+  "title": {
+    "pl": "Wniosek o udostępnienie informacji publicznej",
+    "en": "Request for access to public information"
+  },
+  "formalElements": {
+    "placeDate": [
+      "document.place",
+      "document.date"
+    ],
+    "sender": [
+      "applicant.fullName",
+      "applicant.address"
+    ],
+    "addressee": [
+      "addressee.name",
+      "addressee.address"
+    ],
+    "body": [
+      "request.subject"
+    ]
+  },
+  "defaults": {
+    "document.date": "@today",
+    "isElectronicDelivery": false
+  },
+  "fields": [
+    {
+      "key": "document.place",
+      "label": {
+        "pl": "Miejscowość",
+        "en": "Place"
+      },
+      "type": "text",
+      "required": true,
+      "group": "document",
+      "placeholder": {
+        "pl": "np. Kraków",
+        "en": "e.g. Kraków"
+      }
+    },
+    {
+      "key": "document.date",
+      "label": {
+        "pl": "Data sporządzenia",
+        "en": "Date of the document"
+      },
+      "type": "date",
+      "required": true,
+      "group": "document"
+    },
+    {
+      "key": "applicant.fullName",
+      "label": {
+        "pl": "Imię i nazwisko",
+        "en": "Full name"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant"
+    },
+    {
+      "key": "applicant.address",
+      "label": {
+        "pl": "Adres zamieszkania",
+        "en": "Home address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant",
+      "placeholder": {
+        "pl": "ul. Lipowa 5, 00-950 Warszawa",
+        "en": "ul. Lipowa 5, 00-950 Warszawa"
+      }
+    },
+    {
+      "key": "applicant.email",
+      "label": {
+        "pl": "E-mail (opcjonalnie)",
+        "en": "E-mail (optional)"
+      },
+      "type": "text",
+      "group": "applicant"
+    },
+    {
+      "key": "addressee.name",
+      "label": {
+        "pl": "Nazwa organu",
+        "en": "Authority"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee",
+      "placeholder": {
+        "pl": "Prezydent Miasta Krakowa",
+        "en": "Mayor of the City of Kraków"
+      }
+    },
+    {
+      "key": "addressee.address",
+      "label": {
+        "pl": "Adres organu",
+        "en": "Authority address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee",
+      "placeholder": {
+        "pl": "pl. Wszystkich Świętych 3-4, 31-004 Kraków",
+        "en": "pl. Wszystkich Świętych 3-4, 31-004 Kraków"
+      }
+    },
+    {
+      "key": "request.subject",
+      "label": {
+        "pl": "Jakich informacji żądasz?",
+        "en": "What information do you request?"
+      },
+      "type": "textarea",
+      "required": true,
+      "group": "content",
+      "placeholder": {
+        "pl": "np. kopii umów zawartych przez Urząd Miasta z firmami zewnętrznymi w 2025 r.",
+        "en": "e.g. copies of contracts concluded by the City Office with external companies in 2025"
+      }
+    },
+    {
+      "key": "request.period",
+      "label": {
+        "pl": "Okres, którego dotyczy wniosek (opcjonalnie)",
+        "en": "Period covered (optional)"
+      },
+      "type": "text",
+      "group": "content"
+    },
+    {
+      "key": "isElectronicDelivery",
+      "label": {
+        "pl": "Odpowiedź elektronicznie (ePUAP / e-Doręczenia)",
+        "en": "Reply electronically (ePUAP / e-Delivery)"
+      },
+      "type": "checkbox",
+      "group": "content"
+    },
+    {
+      "key": "applicant.edelivery",
+      "label": {
+        "pl": "Adres skrzynki ePUAP / e-Doręczeń",
+        "en": "ePUAP / e-Delivery address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "content",
+      "showIf": "isElectronicDelivery"
+    },
+    {
+      "key": "attachments",
+      "label": {
+        "pl": "Załączniki",
+        "en": "Attachments"
+      },
+      "type": "list",
+      "group": "attachments",
+      "placeholder": {
+        "pl": "np. kopia decyzji",
+        "en": "e.g. copy of the decision"
+      }
+    }
+  ],
+  "body": {
+    "pl": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>tel.: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-title'>Wniosek</div>",
+      "<div class='doc-subtitle'>o udostępnienie informacji publicznej</div>",
+      "<p>Na podstawie art. 61 ust. 1 Konstytucji RP oraz art. 2 ust. 1 w zw. z art. 10 ust. 1 ustawy z dnia 6 września 2001 r. o dostępie do informacji publicznej wnoszę o udostępnienie następującej informacji publicznej:</p>",
+      "<p>{{request.subject}}</p>",
+      "{#if request.period}<p>Wniosek dotyczy okresu: {{request.period}}.</p>{/if}",
+      "<p>Zgodnie z art. 14 ust. 1 ustawy proszę o udostępnienie informacji ",
+      "{#if isElectronicDelivery}w postaci elektronicznej — na adres skrzynki ePUAP / adres do doręczeń elektronicznych: <b>{{applicant.edelivery}}</b>.{#else}w postaci papierowej — przesłanie pocztą tradycyjną na adres wskazany powyżej.{/if}</p>",
+      "<p>Zgodnie z art. 2 ust. 2 ustawy nie jestem zobowiązany(-a) do wykazywania interesu prawnego ani faktycznego. Przypominam również treść art. 13 ust. 1 ustawy: {@lawRef:UDIP_ART_13}</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(własnoręczny podpis)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Załączniki:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ],
+    "en": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>phone: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-title'>Request</div>",
+      "<div class='doc-subtitle'>for access to public information</div>",
+      "<p>Pursuant to Article 61(1) of the Constitution of the Republic of Poland and Article 2(1) in conjunction with Article 10(1) of the Act of 6 September 2001 on Access to Public Information, I hereby request access to the following public information:</p>",
+      "<p>{{request.subject}}</p>",
+      "{#if request.period}<p>The request covers the period: {{request.period}}.</p>{/if}",
+      "<p>In accordance with Article 14(1) of the Act, please provide the information ",
+      "{#if isElectronicDelivery}electronically — to the ePUAP inbox / electronic delivery address: <b>{{applicant.edelivery}}</b>.{#else}on paper — by regular post to the address given above.{/if}</p>",
+      "<p>Under Article 2(2) of the Act I am not required to demonstrate any legal or factual interest. I would also like to recall Article 13(1) of the Act: {@lawRef:UDIP_ART_13}</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(handwritten signature)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Attachments:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ]
+  }
+}

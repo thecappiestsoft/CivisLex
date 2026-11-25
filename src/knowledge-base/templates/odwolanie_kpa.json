@@ -1,0 +1,260 @@
+{
+  "templateId": "TPL_ODWOLANIE_KPA",
+  "title": {
+    "pl": "Odwołanie od decyzji administracyjnej",
+    "en": "Appeal against an administrative decision"
+  },
+  "formalElements": {
+    "placeDate": [
+      "document.place",
+      "document.date"
+    ],
+    "sender": [
+      "applicant.fullName",
+      "applicant.address"
+    ],
+    "addressee": [
+      "addressee.name",
+      "addressee.address",
+      "decision.authority"
+    ],
+    "body": [
+      "decision.number",
+      "appeal.request"
+    ]
+  },
+  "defaults": {
+    "document.date": "@today",
+    "appeal.request": "reverse"
+  },
+  "rules": [
+    {
+      "type": "deadline",
+      "fromField": "decision.deliveryDate",
+      "toField": "document.date",
+      "constKey": "KPA_APPEAL_DAYS",
+      "unit": "days",
+      "message": {
+        "pl": "Termin na odwołanie: {n} dni od doręczenia (upływa {date})",
+        "en": "Appeal deadline: {n} days from service (expires {date})"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "key": "document.place",
+      "label": {
+        "pl": "Miejscowość",
+        "en": "Place"
+      },
+      "type": "text",
+      "required": true,
+      "group": "document",
+      "placeholder": {
+        "pl": "np. Kraków",
+        "en": "e.g. Kraków"
+      }
+    },
+    {
+      "key": "document.date",
+      "label": {
+        "pl": "Data sporządzenia",
+        "en": "Date of the document"
+      },
+      "type": "date",
+      "required": true,
+      "group": "document"
+    },
+    {
+      "key": "applicant.fullName",
+      "label": {
+        "pl": "Imię i nazwisko",
+        "en": "Full name"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant"
+    },
+    {
+      "key": "applicant.address",
+      "label": {
+        "pl": "Adres zamieszkania",
+        "en": "Home address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant",
+      "placeholder": {
+        "pl": "ul. Lipowa 5, 00-950 Warszawa",
+        "en": "ul. Lipowa 5, 00-950 Warszawa"
+      }
+    },
+    {
+      "key": "applicant.email",
+      "label": {
+        "pl": "E-mail (opcjonalnie)",
+        "en": "E-mail (optional)"
+      },
+      "type": "text",
+      "group": "applicant"
+    },
+    {
+      "key": "addressee.name",
+      "label": {
+        "pl": "Organ odwoławczy",
+        "en": "Appellate authority"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee",
+      "placeholder": {
+        "pl": "Samorządowe Kolegium Odwoławcze w Krakowie",
+        "en": "Local Government Appeals Board in Kraków"
+      }
+    },
+    {
+      "key": "addressee.address",
+      "label": {
+        "pl": "Adres organu odwoławczego",
+        "en": "Appellate authority address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee"
+    },
+    {
+      "key": "decision.authority",
+      "label": {
+        "pl": "Organ, który wydał decyzję (za pośrednictwem)",
+        "en": "Authority that issued the decision (through)"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee",
+      "placeholder": {
+        "pl": "Burmistrz Miasta …",
+        "en": "Mayor of …"
+      }
+    },
+    {
+      "key": "decision.number",
+      "label": {
+        "pl": "Znak decyzji",
+        "en": "Decision reference no."
+      },
+      "type": "text",
+      "required": true,
+      "group": "content",
+      "placeholder": {
+        "pl": "np. GK.6730.12.2026",
+        "en": "e.g. GK.6730.12.2026"
+      }
+    },
+    {
+      "key": "decision.date",
+      "label": {
+        "pl": "Data wydania decyzji",
+        "en": "Date of the decision"
+      },
+      "type": "date",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "decision.deliveryDate",
+      "label": {
+        "pl": "Data doręczenia decyzji",
+        "en": "Date of service"
+      },
+      "type": "date",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "appeal.objections",
+      "label": {
+        "pl": "Zarzuty (czym jesteś niezadowolony/-a)",
+        "en": "Objections (why you disagree)"
+      },
+      "type": "textarea",
+      "group": "content"
+    },
+    {
+      "key": "appeal.request",
+      "label": {
+        "pl": "Wnoszę o",
+        "en": "I request"
+      },
+      "type": "select",
+      "required": true,
+      "group": "content",
+      "options": [
+        {
+          "value": "reverse",
+          "label": {
+            "pl": "Uchylenie i orzeczenie co do istoty",
+            "en": "Revoke and decide on the merits"
+          },
+          "docLabel": {
+            "pl": "uchylenie zaskarżonej decyzji w całości i orzeczenie co do istoty sprawy",
+            "en": "revocation of the contested decision in its entirety and a ruling on the merits of the case"
+          }
+        },
+        {
+          "value": "remand",
+          "label": {
+            "pl": "Uchylenie i przekazanie do ponownego rozpatrzenia",
+            "en": "Revoke and remand for reconsideration"
+          },
+          "docLabel": {
+            "pl": "uchylenie zaskarżonej decyzji w całości i przekazanie sprawy do ponownego rozpatrzenia przez organ I instancji",
+            "en": "revocation of the contested decision in its entirety and referral of the case back to the first-instance authority for reconsideration"
+          }
+        }
+      ]
+    },
+    {
+      "key": "attachments",
+      "label": {
+        "pl": "Załączniki",
+        "en": "Attachments"
+      },
+      "type": "list",
+      "group": "attachments",
+      "placeholder": {
+        "pl": "np. kopia decyzji",
+        "en": "e.g. copy of the decision"
+      }
+    }
+  ],
+  "body": {
+    "pl": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>tel.: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-addressee'><div style='font-weight:normal'>za pośrednictwem:</div><div>{{decision.authority}}</div></div>",
+      "<div class='doc-title'>Odwołanie</div>",
+      "<div class='doc-subtitle'>od decyzji z dnia {{decision.date}}, znak: {{decision.number}}</div>",
+      "<p>Na podstawie art. 127 § 1 i art. 129 Kodeksu postępowania administracyjnego, działając jako strona postępowania, wnoszę odwołanie od powyższej decyzji, doręczonej mi w dniu {{decision.deliveryDate}}, i wnoszę o {{appeal.request}}.</p>",
+      "<div class='doc-section'>Uzasadnienie</div>",
+      "{#if appeal.objections}<p>{{appeal.objections}}</p>{#else}<p>Nie zgadzam się z rozstrzygnięciem zawartym w zaskarżonej decyzji. Zgodnie z art. 128 KPA odwołanie nie wymaga szczegółowego uzasadnienia.</p>{/if}",
+      "<p>Odwołanie wnoszę w ustawowym terminie {@const:KPA_APPEAL_DAYS} dni od dnia doręczenia decyzji.</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(własnoręczny podpis)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Załączniki:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ],
+    "en": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>phone: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-addressee'><div style='font-weight:normal'>through:</div><div>{{decision.authority}}</div></div>",
+      "<div class='doc-title'>Appeal</div>",
+      "<div class='doc-subtitle'>against the decision dated {{decision.date}}, ref.: {{decision.number}}</div>",
+      "<p>Pursuant to Article 127 § 1 and Article 129 of the Code of Administrative Procedure, acting as a party to the proceedings, I appeal against the above decision, served on me on {{decision.deliveryDate}}, and request {{appeal.request}}.</p>",
+      "<div class='doc-section'>Statement of reasons</div>",
+      "{#if appeal.objections}<p>{{appeal.objections}}</p>{#else}<p>I disagree with the ruling contained in the contested decision. Under Article 128 of the Code, an appeal does not require detailed reasoning.</p>{/if}",
+      "<p>This appeal is lodged within the statutory time limit of {@const:KPA_APPEAL_DAYS} days from the date of service of the decision.</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(handwritten signature)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Attachments:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ]
+  }
+}

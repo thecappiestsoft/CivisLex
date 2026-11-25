@@ -1,0 +1,308 @@
+{
+  "disclaimer": {
+    "pl": "Wyciągi przepisów służą celom edukacyjnym; część z nich jest skrócona „(…)”. Przed użyciem w praktyce sprawdź aktualny tekst jednolity w ISAP (isap.sejm.gov.pl).",
+    "en": "Statutory excerpts are for teaching purposes; some are abridged “(…)”. English texts are unofficial working translations. Always check the current consolidated text in ISAP (isap.sejm.gov.pl)."
+  },
+  "articles": [
+    {
+      "id": "ART_45_KONSTYTUCJI",
+      "act": {
+        "pl": "Konstytucja RP",
+        "en": "Constitution of the Republic of Poland"
+      },
+      "unit": "art. 45 ust. 1",
+      "text": "Każdy ma prawo do sprawiedliwego i jawnego rozpatrzenia sprawy bez nieuzasadnionej zwłoki przez właściwy, niezależny, bezstronny i niezawisły sąd.",
+      "text_en": "Everyone shall have the right to a fair and public hearing of his case, without undue delay, before a competent, impartial and independent court."
+    },
+    {
+      "id": "ART_61_KONSTYTUCJI",
+      "act": {
+        "pl": "Konstytucja RP",
+        "en": "Constitution of the Republic of Poland"
+      },
+      "unit": "art. 61 ust. 1",
+      "text": "Obywatel ma prawo do uzyskiwania informacji o działalności organów władzy publicznej oraz osób pełniących funkcje publiczne. (…)",
+      "text_en": "A citizen shall have the right to obtain information on the activities of organs of public authority as well as persons discharging public functions. (…)"
+    },
+    {
+      "id": "ART_78_KONSTYTUCJI",
+      "act": {
+        "pl": "Konstytucja RP",
+        "en": "Constitution of the Republic of Poland"
+      },
+      "unit": "art. 78",
+      "text": "Każda ze stron ma prawo do zaskarżenia orzeczeń i decyzji wydanych w pierwszej instancji. Wyjątki od tej zasady oraz tryb zaskarżania określa ustawa.",
+      "text_en": "Each party shall have the right to appeal against judgments and decisions made at first instance. Exceptions to this principle and the procedure for such appeals shall be specified by statute."
+    },
+    {
+      "id": "ART_80_KONSTYTUCJI",
+      "act": {
+        "pl": "Konstytucja RP",
+        "en": "Constitution of the Republic of Poland"
+      },
+      "unit": "art. 80",
+      "text": "Każdy ma prawo wystąpienia, na zasadach określonych w ustawie, do Rzecznika Praw Obywatelskich z wnioskiem o pomoc w ochronie swoich wolności lub praw naruszonych przez organy władzy publicznej.",
+      "text_en": "In accordance with principles specified by statute, everyone shall have the right to apply to the Commissioner for Human Rights for assistance in protection of his freedoms or rights infringed by organs of public authority."
+    },
+    {
+      "id": "UDIP_ART_2",
+      "act": {
+        "pl": "Ustawa o dostępie do informacji publicznej",
+        "en": "Act on Access to Public Information"
+      },
+      "unit": "art. 2 ust. 1–2",
+      "text": "1. Każdemu przysługuje, z zastrzeżeniem art. 5, prawo dostępu do informacji publicznej, zwane dalej „prawem do informacji publicznej”. 2. Od osoby wykonującej prawo do informacji publicznej nie wolno żądać wykazania interesu prawnego lub faktycznego.",
+      "text_en": "1. Everyone has, subject to Art. 5, the right of access to public information (“the right to public information”). 2. A person exercising the right to public information may not be required to demonstrate a legal or factual interest."
+    },
+    {
+      "id": "UDIP_ART_4",
+      "act": {
+        "pl": "Ustawa o dostępie do informacji publicznej",
+        "en": "Act on Access to Public Information"
+      },
+      "unit": "art. 4 ust. 1",
+      "text": "Obowiązane do udostępniania informacji publicznej są władze publiczne oraz inne podmioty wykonujące zadania publiczne, w szczególności: 1) organy władzy publicznej; (…)",
+      "text_en": "Public authorities and other entities performing public tasks are obliged to provide public information, in particular: 1) organs of public authority; (…)"
+    },
+    {
+      "id": "UDIP_ART_10",
+      "act": {
+        "pl": "Ustawa o dostępie do informacji publicznej",
+        "en": "Act on Access to Public Information"
+      },
+      "unit": "art. 10 ust. 1",
+      "text": "Informacja publiczna, która nie została udostępniona w Biuletynie Informacji Publicznej lub centralnym repozytorium, jest udostępniana na wniosek.",
+      "text_en": "Public information that has not been made available in the Public Information Bulletin or the central repository is provided upon request."
+    },
+    {
+      "id": "UDIP_ART_13",
+      "act": {
+        "pl": "Ustawa o dostępie do informacji publicznej",
+        "en": "Act on Access to Public Information"
+      },
+      "unit": "art. 13 ust. 1",
+      "text": "Udostępnianie informacji publicznej na wniosek następuje bez zbędnej zwłoki, nie później jednak niż w terminie 14 dni od dnia złożenia wniosku, z zastrzeżeniem ust. 2 i art. 15 ust. 2.",
+      "text_en": "Public information is provided upon request without undue delay, but no later than within 14 days from the date the request was filed, subject to para. 2 and Art. 15(2)."
+    },
+    {
+      "id": "UDIP_ART_14",
+      "act": {
+        "pl": "Ustawa o dostępie do informacji publicznej",
+        "en": "Act on Access to Public Information"
+      },
+      "unit": "art. 14 ust. 1",
+      "text": "Udostępnianie informacji publicznej na wniosek następuje w sposób i w formie zgodnych z wnioskiem, chyba że środki techniczne, którymi dysponuje podmiot obowiązany do udostępnienia, nie umożliwiają udostępnienia informacji w sposób i w formie określonych we wniosku.",
+      "text_en": "Public information is provided upon request in the manner and form specified in the request, unless the technical means available to the obliged entity do not allow it."
+    },
+    {
+      "id": "RPO_ART_9",
+      "act": {
+        "pl": "Ustawa o Rzeczniku Praw Obywatelskich",
+        "en": "Act on the Commissioner for Human Rights"
+      },
+      "unit": "art. 9",
+      "text": "Rzecznik podejmuje czynności przewidziane w ustawie, jeżeli poweźmie wiadomość wskazującą na naruszenie wolności i praw człowieka i obywatela, w tym zasady równego traktowania.",
+      "text_en": "The Commissioner takes the actions provided for in the Act if he receives information indicating an infringement of human and civil rights and freedoms, including the principle of equal treatment."
+    },
+    {
+      "id": "RPO_ART_10",
+      "act": {
+        "pl": "Ustawa o Rzeczniku Praw Obywatelskich",
+        "en": "Act on the Commissioner for Human Rights"
+      },
+      "unit": "art. 10 ust. 1",
+      "text": "Wniosek skierowany do Rzecznika jest wolny od opłat, nie wymaga zachowania szczególnej formy, lecz powinien zawierać oznaczenie wnioskodawcy oraz osoby, której wolności i praw sprawa dotyczy, a także określać przedmiot sprawy.",
+      "text_en": "An application to the Commissioner is free of charge and does not require any special form, but it should identify the applicant and the person whose rights and freedoms are concerned, and specify the subject matter."
+    },
+    {
+      "id": "RPO_ART_11",
+      "act": {
+        "pl": "Ustawa o Rzeczniku Praw Obywatelskich",
+        "en": "Act on the Commissioner for Human Rights"
+      },
+      "unit": "art. 11",
+      "text": "Rzecznik po zapoznaniu się z każdym skierowanym do niego wnioskiem może: 1) podjąć sprawę; 2) ograniczyć się do wskazania wnioskodawcy przysługujących mu środków działania; 3) przekazać sprawę według właściwości; 4) nie podjąć sprawy, zawiadamiając o tym wnioskodawcę.",
+      "text_en": "Having examined each application, the Commissioner may: 1) take up the case; 2) merely indicate to the applicant the remedies available; 3) refer the case to the competent body; 4) decline to take up the case, notifying the applicant."
+    },
+    {
+      "id": "KPA_ART_57",
+      "act": {
+        "pl": "Kodeks postępowania administracyjnego",
+        "en": "Code of Administrative Procedure"
+      },
+      "unit": "art. 57 § 1 i § 4",
+      "text": "§ 1. Jeżeli początkiem terminu określonego w dniach jest pewne zdarzenie, przy obliczaniu tego terminu nie uwzględnia się dnia, w którym zdarzenie nastąpiło. Upływ ostatniego z wyznaczonej liczby dni uważa się za koniec terminu. (…) § 4. Jeżeli koniec terminu przypada na dzień uznany ustawowo za wolny od pracy lub na sobotę, termin upływa następnego dnia, który nie jest dniem wolnym od pracy ani sobotą.",
+      "text_en": "§ 1. Where a time limit expressed in days starts with a certain event, the day on which the event occurred is not counted. The lapse of the last of the specified days is the end of the time limit. (…) § 4. If the end of the time limit falls on a statutory public holiday or on a Saturday, the time limit expires on the next day that is neither a public holiday nor a Saturday."
+    },
+    {
+      "id": "KPA_ART_63",
+      "act": {
+        "pl": "Kodeks postępowania administracyjnego",
+        "en": "Code of Administrative Procedure"
+      },
+      "unit": "art. 63 § 2",
+      "text": "Podanie zawiera co najmniej wskazanie osoby, od której pochodzi, jej adres i żądanie oraz czynić zadość innym wymaganiom ustalonym w przepisach szczególnych.",
+      "text_en": "A submission shall contain at least the identification of the person submitting it, their address and the request, and meet other requirements laid down in specific provisions."
+    },
+    {
+      "id": "KPA_ART_127",
+      "act": {
+        "pl": "Kodeks postępowania administracyjnego",
+        "en": "Code of Administrative Procedure"
+      },
+      "unit": "art. 127 § 1",
+      "text": "Od decyzji wydanej w pierwszej instancji służy stronie odwołanie tylko do jednej instancji.",
+      "text_en": "A party may appeal against a first-instance decision to one higher instance only."
+    },
+    {
+      "id": "KPA_ART_128",
+      "act": {
+        "pl": "Kodeks postępowania administracyjnego",
+        "en": "Code of Administrative Procedure"
+      },
+      "unit": "art. 128",
+      "text": "Odwołanie nie wymaga szczegółowego uzasadnienia. Wystarczy, jeżeli z odwołania wynika, że strona nie jest zadowolona z wydanej decyzji. (…)",
+      "text_en": "An appeal does not require detailed reasoning. It is sufficient that the appeal shows the party is dissatisfied with the decision. (…)"
+    },
+    {
+      "id": "KPA_ART_129",
+      "act": {
+        "pl": "Kodeks postępowania administracyjnego",
+        "en": "Code of Administrative Procedure"
+      },
+      "unit": "art. 129 § 1–2",
+      "text": "§ 1. Odwołanie wnosi się do właściwego organu odwoławczego za pośrednictwem organu, który wydał decyzję. § 2. Odwołanie wnosi się w terminie czternastu dni od dnia doręczenia decyzji stronie, a gdy decyzja została ogłoszona ustnie – od dnia jej ogłoszenia stronie.",
+      "text_en": "§ 1. An appeal is lodged with the competent appellate authority through the authority that issued the decision. § 2. An appeal is lodged within fourteen days from the date of service of the decision on the party or, where the decision was announced orally, from the date of its announcement."
+    },
+    {
+      "id": "PPSA_ART_53",
+      "act": {
+        "pl": "Prawo o postępowaniu przed sądami administracyjnymi",
+        "en": "Law on Proceedings before Administrative Courts"
+      },
+      "unit": "art. 53 § 1",
+      "text": "Skargę wnosi się w terminie trzydziestu dni od dnia doręczenia skarżącemu rozstrzygnięcia w sprawie.",
+      "text_en": "A complaint is lodged within thirty days from the date the decision in the case was served on the complainant."
+    },
+    {
+      "id": "KC_ART_111",
+      "act": {
+        "pl": "Kodeks cywilny",
+        "en": "Civil Code"
+      },
+      "unit": "art. 111",
+      "text": "§ 1. Termin oznaczony w dniach kończy się z upływem ostatniego dnia. § 2. Jeżeli początkiem terminu oznaczonego w dniach jest pewne zdarzenie, nie uwzględnia się przy obliczaniu terminu dnia, w którym to zdarzenie nastąpiło.",
+      "text_en": "§ 1. A time limit expressed in days ends at the end of the last day. § 2. If a time limit expressed in days begins with a certain event, the day on which that event occurred is not counted."
+    },
+    {
+      "id": "KC_ART_112",
+      "act": {
+        "pl": "Kodeks cywilny",
+        "en": "Civil Code"
+      },
+      "unit": "art. 112",
+      "text": "Termin oznaczony w tygodniach, miesiącach lub latach kończy się z upływem dnia, który nazwą lub datą odpowiada początkowemu dniowi terminu, a gdyby takiego dnia w ostatnim miesiącu nie było — w ostatnim dniu tego miesiąca. (…)",
+      "text_en": "A time limit expressed in weeks, months or years ends at the end of the day corresponding by name or date to the first day of the period, and if there is no such day in the last month — on the last day of that month. (…)"
+    },
+    {
+      "id": "KC_ART_115",
+      "act": {
+        "pl": "Kodeks cywilny",
+        "en": "Civil Code"
+      },
+      "unit": "art. 115",
+      "text": "Jeżeli koniec terminu do wykonania czynności przypada na dzień uznany ustawowo za wolny od pracy lub na sobotę, termin upływa następnego dnia, który nie jest dniem wolnym od pracy ani sobotą.",
+      "text_en": "If the end of a time limit for performing an act falls on a statutory public holiday or a Saturday, the time limit expires on the next day that is neither a public holiday nor a Saturday."
+    },
+    {
+      "id": "KPC_ART_126",
+      "act": {
+        "pl": "Kodeks postępowania cywilnego",
+        "en": "Code of Civil Procedure"
+      },
+      "unit": "art. 126 § 1",
+      "text": "Każde pismo procesowe powinno zawierać: 1) oznaczenie sądu, do którego jest skierowane, imię i nazwisko lub nazwę stron, ich przedstawicieli ustawowych i pełnomocników; 2) oznaczenie rodzaju pisma; 3) osnowę wniosku lub oświadczenia oraz dowody na poparcie przytoczonych okoliczności; 4) podpis strony albo jej przedstawiciela ustawowego lub pełnomocnika; 5) wymienienie załączników. (…)",
+      "text_en": "Every pleading should contain: 1) the court to which it is addressed and the names of the parties, their statutory representatives and attorneys; 2) the type of pleading; 3) the substance of the motion or statement and evidence supporting the facts alleged; 4) the signature of the party or its representative; 5) a list of attachments. (…)"
+    },
+    {
+      "id": "KPC_ART_187",
+      "act": {
+        "pl": "Kodeks postępowania cywilnego",
+        "en": "Code of Civil Procedure"
+      },
+      "unit": "art. 187 § 1",
+      "text": "Pozew powinien czynić zadość warunkom pisma procesowego, a nadto zawierać: 1) dokładnie określone żądanie, a w sprawach o prawa majątkowe także oznaczenie wartości przedmiotu sporu (…); 2) wskazanie faktów, na których powód opiera swoje żądanie (…); 3) informację, czy strony podjęły próbę mediacji lub innego pozasądowego sposobu rozwiązania sporu (…).",
+      "text_en": "A statement of claim must meet the requirements of a pleading and also contain: 1) a precisely specified claim and, in property cases, the value of the subject of the dispute (…); 2) the facts on which the claimant bases the claim (…); 3) information on whether the parties attempted mediation or another out-of-court dispute resolution (…)."
+    },
+    {
+      "id": "KPC_ART_505_1",
+      "act": {
+        "pl": "Kodeks postępowania cywilnego",
+        "en": "Code of Civil Procedure"
+      },
+      "unit": "art. 505¹ § 1",
+      "text": "Przepisy niniejszego działu stosuje się w sprawach o roszczenia wynikające z umów, jeżeli wartość przedmiotu sporu nie przekracza dwudziestu tysięcy złotych (…).",
+      "text_en": "The provisions of this chapter apply to claims arising from contracts if the value of the subject of the dispute does not exceed twenty thousand zlotys (…)."
+    },
+    {
+      "id": "UPK_ART_7A",
+      "act": {
+        "pl": "Ustawa o prawach konsumenta",
+        "en": "Consumer Rights Act"
+      },
+      "unit": "art. 7a ust. 1–2",
+      "text": "1. Przedsiębiorca udziela odpowiedzi na reklamację konsumenta w terminie 14 dni od dnia jej otrzymania. 2. Jeżeli przedsiębiorca nie udzielił odpowiedzi na reklamację w terminie, o którym mowa w ust. 1, uważa się, że uznał reklamację.",
+      "text_en": "1. The trader responds to a consumer's complaint within 14 days of receiving it. 2. If the trader fails to respond within that time, the complaint is deemed accepted."
+    },
+    {
+      "id": "UPK_ART_43C",
+      "act": {
+        "pl": "Ustawa o prawach konsumenta",
+        "en": "Consumer Rights Act"
+      },
+      "unit": "art. 43c ust. 1",
+      "text": "Przedsiębiorca odpowiada za brak zgodności towaru z umową istniejący w chwili jego dostarczenia i ujawniony w ciągu dwóch lat od tej chwili (…).",
+      "text_en": "The trader is liable for any lack of conformity of the goods with the contract that existed at the time of delivery and became apparent within two years of that time (…)."
+    },
+    {
+      "id": "UPK_ART_43D",
+      "act": {
+        "pl": "Ustawa o prawach konsumenta",
+        "en": "Consumer Rights Act"
+      },
+      "unit": "art. 43d ust. 1",
+      "text": "Jeżeli towar jest niezgodny z umową, konsument może żądać jego naprawy lub wymiany. (…)",
+      "text_en": "If the goods do not conform to the contract, the consumer may demand their repair or replacement. (…)"
+    },
+    {
+      "id": "KK_ART_278",
+      "act": {
+        "pl": "Kodeks karny",
+        "en": "Criminal Code"
+      },
+      "unit": "art. 278 § 1",
+      "text": "Kto zabiera w celu przywłaszczenia cudzą rzecz ruchomą, podlega karze pozbawienia wolności od 3 miesięcy do lat 5.",
+      "text_en": "Whoever takes someone else's movable property with the intent of appropriating it is subject to imprisonment from 3 months to 5 years."
+    },
+    {
+      "id": "KW_ART_119",
+      "act": {
+        "pl": "Kodeks wykroczeń",
+        "en": "Code of Petty Offences"
+      },
+      "unit": "art. 119 § 1",
+      "text": "Kto kradnie lub przywłaszcza sobie cudzą rzecz ruchomą, jeżeli jej wartość nie przekracza 800 złotych, podlega karze aresztu, ograniczenia wolności albo grzywny.",
+      "text_en": "Whoever steals or appropriates someone else's movable property worth no more than 800 zlotys is subject to detention, restriction of liberty or a fine."
+    },
+    {
+      "id": "KPK_ART_304",
+      "act": {
+        "pl": "Kodeks postępowania karnego",
+        "en": "Code of Criminal Procedure"
+      },
+      "unit": "art. 304 § 1",
+      "text": "Każdy dowiedziawszy się o popełnieniu przestępstwa ściganego z urzędu ma społeczny obowiązek zawiadomić o tym prokuratora lub Policję. (…)",
+      "text_en": "Everyone who learns that a crime prosecuted ex officio has been committed has a civic duty to notify the prosecutor or the Police. (…)"
+    }
+  ]
+}

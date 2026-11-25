@@ -1,0 +1,71 @@
+{
+  "procedureId": "PROC_ZAWIADOMIENIE_01",
+  "title": { "pl": "Zawiadomienie o kradzieży", "en": "Report of a theft" },
+  "description": {
+    "pl": "Kradzież: wykroczenie czy przestępstwo? Gdzie i jak ją zgłosić.",
+    "en": "Theft: petty offence or crime? Where and how to report it."
+  },
+  "category": "PRAWO_KARNE",
+  "legalBasisRefs": ["KK_ART_278", "KW_ART_119", "KPK_ART_304"],
+  "startNodeId": "node_1",
+  "nodes": {
+    "node_1": {
+      "type": "DEADLINE_CHECK",
+      "prompt": {
+        "pl": "Do jakiej wartości skradzionej rzeczy (w PLN) kradzież jest jedynie wykroczeniem?",
+        "en": "Up to what value of the stolen item (PLN) is theft only a petty offence?"
+      },
+      "expectedConstantKey": "THEFT_MISDEMEANOR_LIMIT_PLN",
+      "toleranceDays": 0,
+      "unit": "PLN",
+      "feedbackSuccess": {
+        "pl": "Zgadza się — do {@const:THEFT_MISDEMEANOR_LIMIT_PLN} zł to wykroczenie (art. 119 KW), powyżej — przestępstwo (art. 278 KK).",
+        "en": "Correct — up to PLN {@const:THEFT_MISDEMEANOR_LIMIT_PLN} it's a petty offence (Art. 119 KW); above that — a crime (Art. 278 KK)."
+      },
+      "nextNodeId": "node_2"
+    },
+    "node_2": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Skradziono Ci rower wart 2 500 zł. Gdzie składasz zawiadomienie?",
+        "en": "Your bike worth PLN 2,500 was stolen. Where do you file the report?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Na Policji lub w prokuraturze", "en": "With the Police or the public prosecutor" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Poprawnie. Zawiadomienie o przestępstwie składa się prokuratorowi lub Policji (art. 304 § 1 KPK).",
+            "en": "Correct. A crime is reported to the prosecutor or the Police (Art. 304 § 1 KPK)."
+          },
+          "nextNodeId": "node_form"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Bezpośrednio w sądzie karnym", "en": "Directly at the criminal court" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Sąd nie prowadzi postępowania przygotowawczego — robią to Policja i prokuratura.",
+            "en": "Wrong. Courts do not conduct the investigation — the Police and prosecutors do."
+          },
+          "nextNodeId": "node_2"
+        },
+        {
+          "id": "opt_c",
+          "label": { "pl": "U Rzecznika Praw Obywatelskich", "en": "With the Commissioner for Human Rights" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. RPO nie przyjmuje zawiadomień o przestępstwach.",
+            "en": "Wrong. The RPO does not accept crime reports."
+          },
+          "nextNodeId": "node_2"
+        }
+      ]
+    },
+    "node_form": {
+      "type": "DOCUMENT_BUILDER",
+      "templateId": "TPL_ZAWIADOMIENIE"
+    }
+  }
+}

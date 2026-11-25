@@ -1,0 +1,241 @@
+{
+  "templateId": "TPL_RPO_WNIOSEK",
+  "title": {
+    "pl": "Wniosek do Rzecznika Praw Obywatelskich",
+    "en": "Application to the Commissioner for Human Rights"
+  },
+  "formalElements": {
+    "placeDate": [
+      "document.place",
+      "document.date"
+    ],
+    "sender": [
+      "applicant.fullName",
+      "applicant.address"
+    ],
+    "addressee": [
+      "addressee.name",
+      "addressee.address"
+    ],
+    "body": [
+      "case.authority",
+      "case.facts"
+    ]
+  },
+  "defaults": {
+    "document.date": "@today",
+    "addressee.name": "Rzecznik Praw Obywatelskich",
+    "addressee.address": "al. Solidarności 77, 00-090 Warszawa"
+  },
+  "fields": [
+    {
+      "key": "document.place",
+      "label": {
+        "pl": "Miejscowość",
+        "en": "Place"
+      },
+      "type": "text",
+      "required": true,
+      "group": "document",
+      "placeholder": {
+        "pl": "np. Kraków",
+        "en": "e.g. Kraków"
+      }
+    },
+    {
+      "key": "document.date",
+      "label": {
+        "pl": "Data sporządzenia",
+        "en": "Date of the document"
+      },
+      "type": "date",
+      "required": true,
+      "group": "document"
+    },
+    {
+      "key": "applicant.fullName",
+      "label": {
+        "pl": "Imię i nazwisko",
+        "en": "Full name"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant"
+    },
+    {
+      "key": "applicant.address",
+      "label": {
+        "pl": "Adres zamieszkania",
+        "en": "Home address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant",
+      "placeholder": {
+        "pl": "ul. Lipowa 5, 00-950 Warszawa",
+        "en": "ul. Lipowa 5, 00-950 Warszawa"
+      }
+    },
+    {
+      "key": "applicant.email",
+      "label": {
+        "pl": "E-mail (opcjonalnie)",
+        "en": "E-mail (optional)"
+      },
+      "type": "text",
+      "group": "applicant"
+    },
+    {
+      "key": "applicant.phone",
+      "label": {
+        "pl": "Telefon (opcjonalnie)",
+        "en": "Phone (optional)"
+      },
+      "type": "text",
+      "group": "applicant"
+    },
+    {
+      "key": "addressee.name",
+      "label": {
+        "pl": "Adresat",
+        "en": "Addressee"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee"
+    },
+    {
+      "key": "addressee.address",
+      "label": {
+        "pl": "Adres",
+        "en": "Address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee"
+    },
+    {
+      "key": "case.otherPerson",
+      "label": {
+        "pl": "Sprawa dotyczy innej osoby niż wnioskodawca",
+        "en": "The case concerns someone other than the applicant"
+      },
+      "type": "checkbox",
+      "group": "content"
+    },
+    {
+      "key": "case.personName",
+      "label": {
+        "pl": "Imię i nazwisko osoby, której sprawa dotyczy",
+        "en": "Name of the person concerned"
+      },
+      "type": "text",
+      "required": true,
+      "group": "content",
+      "showIf": "case.otherPerson"
+    },
+    {
+      "key": "case.authority",
+      "label": {
+        "pl": "Organ / instytucja, która naruszyła prawa",
+        "en": "Authority / institution that infringed rights"
+      },
+      "type": "text",
+      "required": true,
+      "group": "content",
+      "placeholder": {
+        "pl": "np. Dyrektor Szkoły Podstawowej nr 5 w Lublinie",
+        "en": "e.g. Head of Primary School No. 5 in Lublin"
+      }
+    },
+    {
+      "key": "case.facts",
+      "label": {
+        "pl": "Opis sprawy (fakty)",
+        "en": "Description of the case (facts)"
+      },
+      "type": "textarea",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "case.violatedRights",
+      "label": {
+        "pl": "Jakie prawa lub wolności zostały naruszone?",
+        "en": "Which rights or freedoms were infringed?"
+      },
+      "type": "text",
+      "group": "content",
+      "placeholder": {
+        "pl": "np. prawo do nauki (art. 70 Konstytucji)",
+        "en": "e.g. right to education (Art. 70 of the Constitution)"
+      }
+    },
+    {
+      "key": "case.actionsTaken",
+      "label": {
+        "pl": "Dotychczasowe działania (opcjonalnie)",
+        "en": "Steps taken so far (optional)"
+      },
+      "type": "textarea",
+      "group": "content"
+    },
+    {
+      "key": "case.request",
+      "label": {
+        "pl": "Czego oczekujesz od Rzecznika?",
+        "en": "What do you expect from the Commissioner?"
+      },
+      "type": "textarea",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "attachments",
+      "label": {
+        "pl": "Załączniki",
+        "en": "Attachments"
+      },
+      "type": "list",
+      "group": "attachments",
+      "placeholder": {
+        "pl": "np. kopia decyzji",
+        "en": "e.g. copy of the decision"
+      }
+    }
+  ],
+  "body": {
+    "pl": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>tel.: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-title'>Wniosek</div>",
+      "<div class='doc-subtitle'>o podjęcie sprawy przez Rzecznika Praw Obywatelskich</div>",
+      "<p>Działając na podstawie art. 80 Konstytucji RP oraz art. 9 i art. 10 ust. 1 ustawy z dnia 15 lipca 1987 r. o Rzeczniku Praw Obywatelskich, zwracam się z wnioskiem o pomoc w ochronie praw{#if case.otherPerson} przysługujących <b>{{case.personName}}</b>{#else} mi przysługujących{/if}, naruszonych przez: <b>{{case.authority}}</b>.</p>",
+      "<div class='doc-section'>Uzasadnienie</div>",
+      "<p>{{case.facts}}</p>",
+      "{#if case.violatedRights}<p>W mojej ocenie doszło do naruszenia: {{case.violatedRights}}.</p>{/if}",
+      "{#if case.actionsTaken}<p>Dotychczas podjąłem(-ęłam) następujące działania: {{case.actionsTaken}}</p>{/if}",
+      "<p>Wnoszę o: {{case.request}}</p>",
+      "<p>Zgodnie z art. 10 ust. 1 ustawy wniosek jest wolny od opłat.</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(własnoręczny podpis)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Załączniki:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ],
+    "en": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-sender'><div>{{applicant.fullName}}</div><div>{{applicant.address}}</div>{#if applicant.pesel}<div>PESEL: {{applicant.pesel}}</div>{/if}{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}{#if applicant.phone}<div>phone: {{applicant.phone}}</div>{/if}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-title'>Application</div>",
+      "<div class='doc-subtitle'>for the Commissioner for Human Rights to take up a case</div>",
+      "<p>Acting under Article 80 of the Constitution of the Republic of Poland and Articles 9 and 10(1) of the Act of 15 July 1987 on the Commissioner for Human Rights, I request assistance in protecting the rights{#if case.otherPerson} of <b>{{case.personName}}</b>{#else} vested in me{/if}, infringed by: <b>{{case.authority}}</b>.</p>",
+      "<div class='doc-section'>Statement of reasons</div>",
+      "<p>{{case.facts}}</p>",
+      "{#if case.violatedRights}<p>In my view the following was infringed: {{case.violatedRights}}.</p>{/if}",
+      "{#if case.actionsTaken}<p>Steps taken so far: {{case.actionsTaken}}</p>{/if}",
+      "<p>I request: {{case.request}}</p>",
+      "<p>Under Article 10(1) of the Act, this application is free of charge.</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(handwritten signature)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Attachments:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ]
+  }
+}

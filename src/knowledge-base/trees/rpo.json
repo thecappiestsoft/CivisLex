@@ -1,0 +1,124 @@
+{
+  "procedureId": "PROC_RPO_01",
+  "title": { "pl": "Wniosek do Rzecznika Praw Obywatelskich", "en": "Application to the Commissioner for Human Rights" },
+  "description": {
+    "pl": "Kiedy RPO może pomóc, ile kosztuje wniosek i co musi zawierać.",
+    "en": "When the Commissioner can help, what an application costs and what it must contain."
+  },
+  "category": "PRAWO_KONSTYTUCYJNE",
+  "legalBasisRefs": ["ART_80_KONSTYTUCJI", "RPO_ART_9", "RPO_ART_10", "RPO_ART_11"],
+  "startNodeId": "node_1",
+  "nodes": {
+    "node_1": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "W której sytuacji możesz zwrócić się do RPO z wnioskiem o pomoc?",
+        "en": "In which situation can you ask the Commissioner (RPO) for help?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Sąsiad nie oddaje pożyczonej kosiarki", "en": "A neighbour won't return a borrowed lawnmower" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. To spór prywatny — RPO chroni przed naruszeniami ze strony organów władzy publicznej (art. 80 Konstytucji).",
+            "en": "Wrong. This is a private dispute — the RPO protects against infringements by public authorities (Art. 80 of the Constitution)."
+          },
+          "nextNodeId": "node_1"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Szkoła publiczna odmawia uczniowi z niepełnosprawnością dostępu do zajęć", "en": "A public school denies a student with a disability access to classes" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Poprawnie. To możliwe naruszenie praw przez podmiot publiczny, w tym zasady równego traktowania.",
+            "en": "Correct. This is a possible infringement of rights by a public body, including the equal treatment principle."
+          },
+          "nextNodeId": "node_2"
+        },
+        {
+          "id": "opt_c",
+          "label": { "pl": "Chcę zmienić wyrok sądu, bo się z nim nie zgadzam", "en": "I want a court judgment changed because I disagree with it" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. RPO nie jest kolejną instancją sądową; od wyroku przysługują środki zaskarżenia w procedurze sądowej.",
+            "en": "Wrong. The RPO is not an appellate court; judgments are challenged through court remedies."
+          },
+          "nextNodeId": "node_1"
+        }
+      ]
+    },
+    "node_2": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Czy wniosek do RPO jest płatny lub wymaga szczególnej formy?",
+        "en": "Is an application to the RPO subject to a fee or a special form?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Jest wolny od opłat i nie wymaga szczególnej formy", "en": "It is free of charge and needs no special form" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Tak — wynika to wprost z art. 10 ust. 1 ustawy o RPO.",
+            "en": "Yes — this follows directly from Art. 10(1) of the Act on the Commissioner."
+          },
+          "nextNodeId": "node_3"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Trzeba wnieść opłatę skarbową i użyć urzędowego formularza", "en": "A stamp fee and an official form are required" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Ustawa gwarantuje, że wniosek jest bezpłatny i może mieć dowolną formę.",
+            "en": "Wrong. The Act guarantees the application is free and may take any form."
+          },
+          "nextNodeId": "node_2"
+        },
+        {
+          "id": "opt_c",
+          "label": { "pl": "Musi go podpisać adwokat lub radca prawny", "en": "It must be signed by an advocate or legal adviser" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Nie ma przymusu adwokacko-radcowskiego — każdy może napisać wniosek sam.",
+            "en": "Wrong. Legal representation is not mandatory — anyone can write it themselves."
+          },
+          "nextNodeId": "node_2"
+        }
+      ]
+    },
+    "node_3": {
+      "type": "QUESTION",
+      "prompt": {
+        "pl": "Jakie minimalne elementy powinien zawierać wniosek?",
+        "en": "What minimum elements should the application contain?"
+      },
+      "options": [
+        {
+          "id": "opt_a",
+          "label": { "pl": "Oznaczenie wnioskodawcy, osoby, której sprawa dotyczy, i przedmiot sprawy", "en": "The applicant, the person concerned and the subject matter" },
+          "isCorrect": true,
+          "feedback": {
+            "pl": "Dobrze. Tylko tyle wymaga art. 10 ust. 1 ustawy o RPO.",
+            "en": "Good. That is all Art. 10(1) of the Act requires."
+          },
+          "nextNodeId": "node_form"
+        },
+        {
+          "id": "opt_b",
+          "label": { "pl": "Poświadczenie notarialne podpisu", "en": "A notarised signature" },
+          "isCorrect": false,
+          "feedback": {
+            "pl": "Błąd. Poświadczenie podpisu nie jest wymagane.",
+            "en": "Wrong. Notarisation is not required."
+          },
+          "nextNodeId": "node_3"
+        }
+      ]
+    },
+    "node_form": {
+      "type": "DOCUMENT_BUILDER",
+      "templateId": "TPL_RPO_WNIOSEK"
+    }
+  }
+}

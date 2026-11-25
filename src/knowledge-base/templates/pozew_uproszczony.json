@@ -1,0 +1,283 @@
+{
+  "templateId": "TPL_POZEW_UPROSZCZONY",
+  "title": {
+    "pl": "Pozew o zapłatę (postępowanie uproszczone)",
+    "en": "Statement of claim for payment (simplified procedure)"
+  },
+  "formalElements": {
+    "placeDate": [
+      "document.place",
+      "document.date"
+    ],
+    "sender": [
+      "applicant.fullName",
+      "applicant.address",
+      "applicant.pesel"
+    ],
+    "addressee": [
+      "addressee.name",
+      "addressee.address",
+      "defendant.fullName",
+      "defendant.address"
+    ],
+    "body": [
+      "claim.amount",
+      "claim.basis"
+    ]
+  },
+  "defaults": {
+    "document.date": "@today",
+    "addressee.name": "Sąd Rejonowy w … , Wydział Cywilny",
+    "claim.costs": true
+  },
+  "rules": [
+    {
+      "type": "maxConst",
+      "field": "claim.amount",
+      "constKey": "SMALL_CLAIMS_LIMIT_PLN",
+      "message": {
+        "pl": "Wartość sporu nie może przekraczać {limit} zł (postępowanie uproszczone)",
+        "en": "Claim value may not exceed PLN {limit} (simplified procedure)"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "key": "document.place",
+      "label": {
+        "pl": "Miejscowość",
+        "en": "Place"
+      },
+      "type": "text",
+      "required": true,
+      "group": "document",
+      "placeholder": {
+        "pl": "np. Kraków",
+        "en": "e.g. Kraków"
+      }
+    },
+    {
+      "key": "document.date",
+      "label": {
+        "pl": "Data sporządzenia",
+        "en": "Date of the document"
+      },
+      "type": "date",
+      "required": true,
+      "group": "document"
+    },
+    {
+      "key": "applicant.fullName",
+      "label": {
+        "pl": "Imię i nazwisko",
+        "en": "Full name"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant"
+    },
+    {
+      "key": "applicant.address",
+      "label": {
+        "pl": "Adres zamieszkania",
+        "en": "Home address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "applicant",
+      "placeholder": {
+        "pl": "ul. Lipowa 5, 00-950 Warszawa",
+        "en": "ul. Lipowa 5, 00-950 Warszawa"
+      }
+    },
+    {
+      "key": "applicant.pesel",
+      "label": {
+        "pl": "Numer PESEL",
+        "en": "PESEL number"
+      },
+      "type": "pesel",
+      "required": true,
+      "group": "applicant",
+      "placeholder": {
+        "pl": "11 cyfr",
+        "en": "11 digits"
+      }
+    },
+    {
+      "key": "applicant.email",
+      "label": {
+        "pl": "E-mail (opcjonalnie)",
+        "en": "E-mail (optional)"
+      },
+      "type": "text",
+      "group": "applicant"
+    },
+    {
+      "key": "addressee.name",
+      "label": {
+        "pl": "Sąd",
+        "en": "Court"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee",
+      "placeholder": {
+        "pl": "Sąd Rejonowy dla Krakowa-Śródmieścia, I Wydział Cywilny",
+        "en": "District Court for Kraków-Śródmieście, 1st Civil Division"
+      }
+    },
+    {
+      "key": "addressee.address",
+      "label": {
+        "pl": "Adres sądu",
+        "en": "Court address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "addressee"
+    },
+    {
+      "key": "defendant.fullName",
+      "label": {
+        "pl": "Pozwany — imię i nazwisko",
+        "en": "Defendant — full name"
+      },
+      "type": "text",
+      "required": true,
+      "group": "parties"
+    },
+    {
+      "key": "defendant.address",
+      "label": {
+        "pl": "Pozwany — adres",
+        "en": "Defendant — address"
+      },
+      "type": "text",
+      "required": true,
+      "group": "parties"
+    },
+    {
+      "key": "claim.amount",
+      "label": {
+        "pl": "Kwota żądania (PLN)",
+        "en": "Amount claimed (PLN)"
+      },
+      "type": "money",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "claim.interestFrom",
+      "label": {
+        "pl": "Odsetki od dnia",
+        "en": "Interest from"
+      },
+      "type": "date",
+      "group": "content"
+    },
+    {
+      "key": "claim.basis",
+      "label": {
+        "pl": "Uzasadnienie — fakty",
+        "en": "Statement of facts"
+      },
+      "type": "textarea",
+      "required": true,
+      "group": "content"
+    },
+    {
+      "key": "claim.evidence",
+      "label": {
+        "pl": "Dowody",
+        "en": "Evidence"
+      },
+      "type": "textarea",
+      "group": "content",
+      "placeholder": {
+        "pl": "np. umowa pożyczki z dnia …, potwierdzenie przelewu",
+        "en": "e.g. loan agreement dated …, bank transfer confirmation"
+      }
+    },
+    {
+      "key": "mediation.attempted",
+      "label": {
+        "pl": "Strony próbowały mediacji / ugody",
+        "en": "The parties attempted mediation / settlement"
+      },
+      "type": "checkbox",
+      "group": "content"
+    },
+    {
+      "key": "mediation.reason",
+      "label": {
+        "pl": "Dlaczego nie podjęto próby mediacji?",
+        "en": "Why was no mediation attempted?"
+      },
+      "type": "text",
+      "required": true,
+      "group": "content",
+      "showIf": "!mediation.attempted"
+    },
+    {
+      "key": "claim.costs",
+      "label": {
+        "pl": "Żądam zwrotu kosztów procesu",
+        "en": "I claim reimbursement of costs"
+      },
+      "type": "checkbox",
+      "group": "content"
+    },
+    {
+      "key": "attachments",
+      "label": {
+        "pl": "Załączniki",
+        "en": "Attachments"
+      },
+      "type": "list",
+      "group": "attachments",
+      "placeholder": {
+        "pl": "np. kopia decyzji",
+        "en": "e.g. copy of the decision"
+      }
+    }
+  ],
+  "body": {
+    "pl": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-sender'><div><b>Powód:</b> {{applicant.fullName}}</div><div>{{applicant.address}}</div><div>PESEL: {{applicant.pesel}}</div>{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}</div>",
+      "<div class='doc-sender'><div><b>Pozwany:</b> {{defendant.fullName}}</div><div>{{defendant.address}}</div></div>",
+      "<div class='doc-sender'><b>Wartość przedmiotu sporu:</b> {{claim.amount}}</div>",
+      "<div class='doc-title'>Pozew o zapłatę</div>",
+      "<div class='doc-subtitle'>w postępowaniu uproszczonym</div>",
+      "<p>W imieniu własnym wnoszę o:</p>",
+      "<ol><li>zasądzenie od pozwanego na rzecz powoda kwoty {{claim.amount}}{#if claim.interestFrom} wraz z odsetkami ustawowymi za opóźnienie od dnia {{claim.interestFrom}} do dnia zapłaty{/if};</li>{#if claim.costs}<li>zasądzenie od pozwanego na rzecz powoda kosztów procesu według norm przepisanych;</li>{/if}<li>przeprowadzenie dowodów wskazanych w uzasadnieniu.</li></ol>",
+      "<p>{#if mediation.attempted}Strony podjęły próbę pozasądowego rozwiązania sporu, która nie przyniosła rezultatu.{#else}Strony nie podjęły próby mediacji ani innego pozasądowego sposobu rozwiązania sporu, ponieważ {{mediation.reason}}.{/if}</p>",
+      "<div class='doc-section'>Uzasadnienie</div>",
+      "<p>{{claim.basis}}</p>",
+      "{#if claim.evidence}<p><b>Dowody:</b> {{claim.evidence}}</p>{/if}",
+      "<p>Wartość przedmiotu sporu nie przekracza {@const:SMALL_CLAIMS_LIMIT_PLN} zł, a roszczenie wynika z umowy, zatem sprawa podlega rozpoznaniu w postępowaniu uproszczonym (art. 505¹ § 1 KPC).</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(własnoręczny podpis)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Załączniki:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ],
+    "en": [
+      "<div class='doc-place'>{{document.place}}, {{document.date}}</div>",
+      "<div class='doc-addressee'><div>{{addressee.name}}</div><div>{{addressee.address}}</div></div>",
+      "<div class='doc-sender'><div><b>Claimant:</b> {{applicant.fullName}}</div><div>{{applicant.address}}</div><div>PESEL: {{applicant.pesel}}</div>{#if applicant.email}<div>e-mail: {{applicant.email}}</div>{/if}</div>",
+      "<div class='doc-sender'><div><b>Defendant:</b> {{defendant.fullName}}</div><div>{{defendant.address}}</div></div>",
+      "<div class='doc-sender'><b>Value of the claim:</b> {{claim.amount}}</div>",
+      "<div class='doc-title'>Statement of claim for payment</div>",
+      "<div class='doc-subtitle'>in simplified proceedings</div>",
+      "<p>On my own behalf I request:</p>",
+      "<ol><li>an order that the defendant pay the claimant {{claim.amount}}{#if claim.interestFrom} with statutory interest for delay from {{claim.interestFrom}} until the date of payment{/if};</li>{#if claim.costs}<li>an order that the defendant pay the claimant's costs of the proceedings as prescribed;</li>{/if}<li>the taking of the evidence indicated in the statement of reasons.</li></ol>",
+      "<p>{#if mediation.attempted}The parties attempted an out-of-court resolution of the dispute, without success.{#else}The parties did not attempt mediation or another out-of-court dispute resolution because {{mediation.reason}}.{/if}</p>",
+      "<div class='doc-section'>Statement of reasons</div>",
+      "<p>{{claim.basis}}</p>",
+      "{#if claim.evidence}<p><b>Evidence:</b> {{claim.evidence}}</p>{/if}",
+      "<p>The value of the claim does not exceed PLN {@const:SMALL_CLAIMS_LIMIT_PLN} and the claim arises from a contract, so the case is subject to the simplified procedure (Art. 505¹ § 1 KPC).</p>",
+      "<div class='doc-signature'><div class='sig-space'></div><div class='sig-line'>(handwritten signature)</div></div>",
+      "{#if attachments}<div class='doc-attachments'><h4>Attachments:</h4><ol>{#each attachments}<li>{{this}}</li>{/each}</ol></div>{/if}"
+    ]
+  }
+}

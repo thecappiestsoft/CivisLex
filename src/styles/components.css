@@ -1,0 +1,429 @@
+/* ==========================================================================
+   Komponenty: przyciski, pieczątki, przełączniki, kartki, pola formularza,
+   pola wyboru, toasty, modal, karty przepisów.
+   ========================================================================== */
+
+/* ---------- Przyciski ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border: 1.5px solid transparent;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  line-height: 1.2;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, transform 0.08s, box-shadow 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Główny: tusz z czerwonym „odbiciem” */
+.btn-primary {
+  background: var(--ink);
+  color: var(--ink-contrast);
+  box-shadow: 3px 3px 0 var(--stamp);
+}
+.btn-primary:hover:not(:disabled) { color: var(--ink-contrast); box-shadow: 4px 4px 0 var(--stamp); transform: translate(-1px, -1px); }
+.btn-primary:active:not(:disabled) { box-shadow: 1px 1px 0 var(--stamp); transform: translate(2px, 2px); }
+
+/* Pieczęć: czerwony blok z obwódką (eksport pisma) */
+.btn-stamp {
+  background: var(--stamp);
+  color: #fffdf6;
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  outline: 2px solid var(--stamp);
+  outline-offset: 3px;
+  margin: 5px;
+}
+.btn-stamp:hover:not(:disabled) { color: #fffdf6; filter: brightness(1.08); }
+.btn-stamp:active:not(:disabled) { transform: scale(0.97); }
+
+/* Wtórny: niebieski kopiowy */
+.btn-secondary {
+  background: var(--carbon-soft);
+  color: var(--carbon);
+  border-color: var(--carbon);
+  border-radius: var(--radius);
+}
+.btn-secondary:hover:not(:disabled) { background: var(--carbon); color: var(--paper); }
+
+/* Obrysowany (np. odpis TXT) */
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--dots); }
+.btn-outline:hover:not(:disabled) { border-color: var(--ink); background: var(--paper-2); }
+
+/* Bez tła */
+.btn-ghost { background: transparent; color: var(--text-muted); }
+.btn-ghost:hover:not(:disabled) { color: var(--ink); background: var(--paper-2); }
+
+/* Fiszka / etykieta z dziurką (np. „Pomiń quiz”) */
+.btn-tag {
+  background: var(--folder);
+  color: var(--tab-text);
+  border-color: var(--folder-edge);
+  border-radius: 0 20px 20px 0;
+  padding-left: 0.85rem;
+  min-height: 40px;
+}
+.btn-tag::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-faint);
+  flex-shrink: 0;
+}
+.btn-tag:hover:not(:disabled) { color: var(--ink); border-color: var(--dots); }
+
+.btn-danger { background: var(--stamp); color: #fff; }
+.btn-sm { min-height: 36px; padding: 0 0.75rem; font-size: var(--fs-xs); }
+.btn-icon { min-height: 36px; width: 36px; padding: 0; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+.btn-row .spacer { flex: 1; }
+
+/* ---------- Pieczątki PL | EN ---------- */
+.lang-toggle { display: flex; align-items: center; gap: 6px; }
+.stamp-btn {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  min-width: 42px;
+  min-height: 34px;
+  padding: 0 8px;
+  background: transparent;
+  color: var(--bar-muted);
+  border: 2px dashed var(--bar-border);
+  cursor: pointer;
+  transform: rotate(1.5deg);
+  transition: transform 0.15s var(--ease), background 0.15s, color 0.15s;
+}
+.stamp-btn:hover { color: var(--bar-text); border-color: var(--bar-muted); }
+.stamp-btn.is-active {
+  background: var(--stamp);
+  border: 2px solid var(--stamp);
+  color: #fbf7ec;
+  transform: rotate(-2deg);
+}
+.lang-sep { font-family: var(--font-mono); color: var(--bar-border); user-select: none; }
+
+/* ---------- Przełącznik motywu (kołyskowy, same ikony) ---------- */
+.theme-toggle {
+  display: flex;
+  padding: 3px;
+  border-radius: var(--radius);
+  background: var(--bar-sunken);
+  border: 1px solid var(--bar-border);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.rocker-btn {
+  width: 40px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--bar-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.rocker-btn:hover { color: var(--bar-text); }
+.rocker-btn.is-active {
+  background: #e9d9b0;
+  color: #1e2a3a;
+  box-shadow: 0 2px 0 #8f7e57;
+}
+
+/* ---------- Filtry (fiszki) ---------- */
+.chip-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-5); }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 38px;
+  padding: 0 0.9rem;
+  border: 1.5px solid var(--dots);
+  background: var(--paper);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+.chip::before {
+  content: '';
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid currentColor;
+  flex-shrink: 0;
+}
+.chip:hover { color: var(--ink); border-color: var(--ink); }
+.chip.is-active { background: var(--ink); border-color: var(--ink); color: var(--ink-contrast); }
+.chip.is-active::before { background: var(--stamp); border-color: var(--stamp); }
+.chip-sm { min-height: 28px; padding: 0 0.6rem; font-size: var(--fs-xs); }
+.chip-sm::before { display: none; }
+
+.cat-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cat, var(--carbon));
+}
+.cat-PRAWO_KONSTYTUCYJNE { --cat: var(--cat-konst); }
+.cat-PRAWO_ADMINISTRACYJNE { --cat: var(--cat-admin); }
+.cat-PRAWO_CYWILNE { --cat: var(--cat-cyw); }
+.cat-PRAWO_KARNE { --cat: var(--cat-karne); }
+
+.badge {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: 0 0.4rem;
+  border: 1.5px solid var(--stamp);
+  color: var(--stamp);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transform: rotate(-3deg);
+}
+
+/* ---------- Pieczątka (informacja zwrotna, statusy) ---------- */
+.stamp {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border: 3px double currentColor;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-6deg);
+  opacity: 0.92;
+  animation: stamp-in 0.28s var(--ease);
+}
+.stamp-ok { color: var(--carbon); }
+.stamp-bad { color: var(--stamp); }
+@keyframes stamp-in {
+  from { transform: rotate(-6deg) scale(1.6); opacity: 0; }
+  60% { transform: rotate(-6deg) scale(0.96); opacity: 1; }
+}
+
+/* ---------- Kartki (panele) ---------- */
+.panel {
+  position: relative;
+  background: var(--paper);
+  box-shadow: var(--paper-shadow);
+  padding: var(--space-5) var(--space-6);
+}
+.panel + .panel { margin-top: var(--space-5); }
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+.panel-title svg { color: var(--stamp); flex-shrink: 0; }
+
+/* Spinacz biurowy */
+.clip::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 44px;
+  width: 15px;
+  height: 42px;
+  border: 3px solid #9aa3ae;
+  border-bottom-color: transparent;
+  border-radius: 9px;
+  pointer-events: none;
+}
+
+/* ---------- Pola formularza: rubryki z wykropkowaniem ---------- */
+.field { display: flex; flex-direction: column; gap: 2px; margin-bottom: var(--space-4); transition: background 0.4s; }
+.field-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.field-label .req { color: var(--stamp); margin-left: 3px; }
+
+input[type='text'],
+input[type='number'],
+input[type='date'],
+input[type='password'],
+input[type='search'],
+select,
+textarea {
+  width: 100%;
+  padding: 7px 2px 7px;
+  border: 0;
+  border-bottom: 1.5px dotted var(--dots);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+select { cursor: pointer; padding-right: 22px; appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--dots) 50%), linear-gradient(135deg, var(--dots) 50%, transparent 50%); background-position: right 8px center, right 3px center; background-size: 5px 5px; background-repeat: no-repeat; }
+select option { background: var(--paper); color: var(--ink); }
+textarea {
+  resize: vertical;
+  min-height: 7.5rem;
+  line-height: 32px;
+  padding: 0 2px;
+  border-bottom: 0;
+  background-image: repeating-linear-gradient(transparent 0 31px, var(--paper-line) 31px 32px);
+  background-attachment: local;
+}
+input:hover, select:hover { border-bottom-color: var(--ink); }
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-bottom: 2px solid var(--carbon);
+  background-color: var(--carbon-soft);
+  box-shadow: none;
+}
+textarea:focus { border-bottom: 0; }
+input:disabled, select:disabled { opacity: 0.6; }
+::placeholder { color: var(--dots-light); font-family: var(--font-mono); }
+
+.field.has-error .field-label { color: var(--stamp); }
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea { border-bottom: 2px dashed var(--stamp); background-color: var(--stamp-soft); }
+.field.flash { background: var(--warn-soft); box-shadow: 0 0 0 8px var(--warn-soft); }
+
+.field-hint { font-size: var(--fs-xs); color: var(--text-muted); min-height: 1em; }
+.pesel-status.is-ok { color: var(--ok); }
+.pesel-status.is-ok::before { content: '✓ '; }
+.pesel-status.is-error { color: var(--stamp); }
+
+.inline-fields { display: flex; gap: var(--space-3); align-items: flex-end; }
+.inline-fields > input, .inline-fields > select { flex: 1; }
+
+/* Pole wyboru: kratka formularza */
+.check-label { display: flex; align-items: flex-start; gap: var(--space-3); cursor: pointer; font-size: var(--fs-sm); font-weight: 500; }
+.check-label input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.check-box {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: transparent;
+  transition: background 0.12s;
+}
+.check-label input:checked + .check-box { background: var(--ink); color: var(--paper); }
+.check-label input:focus-visible + .check-box { box-shadow: var(--focus); }
+
+/* Przełącznik trybu roboczego — jako kratka */
+.switch { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); cursor: pointer; user-select: none; min-height: 44px; }
+.switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.switch-track {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+.switch input:checked + .switch-track { background: var(--ink); }
+.switch input:checked + .switch-track::after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  border-left: 2.5px solid var(--paper);
+  border-bottom: 2.5px solid var(--paper);
+  transform: translateY(-1px) rotate(-45deg);
+}
+.switch input:focus-visible + .switch-track { box-shadow: var(--focus); }
+
+/* Liczba + jednostka */
+.num-field { display: inline-flex; align-items: flex-end; gap: var(--space-2); }
+.num-field .num-input {
+  width: 7rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  border-bottom: 2px solid var(--ink);
+}
+.num-unit { font-family: var(--font-mono); color: var(--text-muted); font-size: var(--fs-sm); padding-bottom: 8px; }
+
+/* Lista (załączniki) */
+.list-editor { margin: 0 0 var(--space-2); padding-left: 1.6rem; display: grid; gap: var(--space-1); font-family: var(--font-mono); }
+.list-editor li { display: flex; gap: var(--space-2); align-items: center; }
+.list-editor li::marker { color: var(--text-faint); }
+
+.form-error { color: var(--stamp); font-size: var(--fs-sm); min-height: 1.2em; margin: var(--space-2) 0 0; }
+
+/* ---------- Toast: wąski pasek maszynopisu ---------- */
+.toast-region { position: fixed; bottom: 20px; right: 20px; display: grid; gap: var(--space-2); z-index: 200; }
+.toast {
+  padding: 0.7rem 1rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  box-shadow: 4px 4px 0 var(--ink);
+  max-width: 380px;
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform 0.25s var(--ease), opacity 0.25s;
+}
+.toast.is-visible { transform: none; opacity: 1; }
+.toast-success { box-shadow: 4px 4px 0 var(--carbon); border-color: var(--carbon); }
+.toast-error { box-shadow: 4px 4px 0 var(--stamp); border-color: var(--stamp); }
+
+/* ---------- Modal ---------- */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(20, 16, 8, 0.55); display: grid; place-items: center; z-index: 300; padding: var(--space-4); animation: fade 0.15s; }
+.modal { position: relative; background: var(--paper); box-shadow: var(--paper-shadow); padding: var(--space-6); width: min(500px, 100%); animation: pop 0.2s var(--ease); }
+.modal-title { font-family: var(--font-serif); font-size: var(--fs-lg); margin-bottom: var(--space-3); }
+.modal-body { color: var(--text-muted); font-size: var(--fs-sm); }
+.modal-list { margin: var(--space-3) 0 0; padding-left: 1.2rem; color: var(--stamp); font-family: var(--font-mono); }
+.modal-actions { display: flex; justify-content: flex-end; gap: var(--space-3); margin-top: var(--space-5); }
+
+@keyframes fade { from { opacity: 0; } }
+@keyframes pop { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- Wyciąg przepisu ---------- */
+.law-card {
+  padding: var(--space-3) 0 var(--space-4);
+  border-bottom: 1px solid var(--paper-line);
+}
+.law-card:last-child { border-bottom: 0; }
+.law-card header { display: flex; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-2); }
+.law-card header strong { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--stamp); }
+.law-card header strong::before { content: '§ '; }
+.law-card header span, .law-card header code { font-size: var(--fs-xs); color: var(--text-muted); }
+.law-card p { margin: 0; font-family: var(--font-serif); font-size: 1rem; line-height: 1.6; }
+.law-card details { margin-top: var(--space-2); font-size: var(--fs-sm); }
+.law-card details summary { cursor: pointer; color: var(--text-muted); font-family: var(--font-mono); }
+
+.empty { text-align: center; padding: var(--space-7) 0; color: var(--text-muted); }
